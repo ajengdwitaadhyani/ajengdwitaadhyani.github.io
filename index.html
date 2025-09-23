@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajeng Dwita Adhyani | Portofolio Keuangan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+        /* Custom Peach Colors */
+        .bg-peach-50 { background-color: #FFF7F5; }
+        .bg-peach-100 { background-color: #FFEAE5; }
+        .bg-peach-500 { background-color: #FF8A65; }
+        .text-peach-500 { color: #FF8A65; }
+        .border-peach-500 { border-color: #FF8A65; }
+        .hover\:bg-peach-600:hover { background-color: #FF7043; }
+        .ring-peach-500:focus { --tw-ring-color: #FF8A65; }
+
+        /* Animation Styles */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .lang-switch-btn.active {
+            color: #FF8A65;
+            font-weight: 700;
+        }
+        .link-chip {
+            display: inline-flex;
+            align-items: center;
+            background-color: #FFEAE5; /* bg-peach-100 */
+            color: #FF8A65; /* text-peach-500 */
+            padding: 4px 10px;
+            border-radius: 9999px;
+            font-size: 0.75rem; /* text-xs */
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        .link-chip:hover {
+            background-color: #FFDAB9; /* Lighter peach for hover */
+        }
+        .link-chip i {
+            margin-right: 6px;
+        }
+    </style>
+</head>
+<body class="bg-peach-50 text-slate-800">
+
+    <!-- Header / Navbar -->
+    <header class="bg-peach-50/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="font-display text-2xl font-bold text-slate-800">Ajeng D. Adhyani</a>
+            <div class="flex items-center space-x-8">
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-slate-600 hover:text-peach-500 transition duration-300" data-lang="navAbout">Tentang Saya</a>
+                    <a href="#experience" class="text-slate-600 hover:text-peach-500 transition duration-300" data-lang="navExperience">Pengalaman</a>
+                    <a href="#education" class="text-slate-600 hover:text-peach-500 transition duration-300" data-lang="navEducation">Pendidikan</a>
+                    <a href="#certificates" class="text-slate-600 hover:text-peach-500 transition duration-300" data-lang="navCertificates">Sertifikat</a>
+                    <a href="#skills" class="text-slate-600 hover:text-peach-500 transition duration-300" data-lang="navSkills">Keahlian</a>
+                    <a href="#contact" class="text-slate-600 hover:text-peach-500 transition duration-300" data-lang="navContact">Kontak</a>
+                </nav>
+                <div class="hidden md:flex items-center space-x-2 text-sm">
+                    <button id="lang-id" class="lang-switch-btn active transition-colors duration-300" data-lang="langBtnShortId">ID</button>
+                    <span class="text-slate-300">|</span>
+                    <button id="lang-en" class="lang-switch-btn transition-colors duration-300" data-lang="langBtnShortEn">EN</button>
+                </div>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#about" class="block py-2 text-slate-600 hover:text-peach-500" data-lang="navAboutMobile">Tentang Saya</a>
+            <a href="#experience" class="block py-2 text-slate-600 hover:text-peach-500" data-lang="navExperienceMobile">Pengalaman</a>
+            <a href="#education" class="block py-2 text-slate-600 hover:text-peach-500" data-lang="navEducationMobile">Pendidikan</a>
+            <a href="#certificates" class="block py-2 text-slate-600 hover:text-peach-500" data-lang="navCertificatesMobile">Sertifikat</a>
+            <a href="#skills" class="block py-2 text-slate-600 hover:text-peach-500" data-lang="navSkillsMobile">Keahlian</a>
+            <a href="#contact" class="block py-2 text-slate-600 hover:text-peach-500" data-lang="navContactMobile">Kontak</a>
+            <div class="flex items-center space-x-2 text-sm mt-4">
+                <button id="lang-id-mobile" class="lang-switch-btn active transition-colors duration-300" data-lang="langBtnLongId">Indonesia</button>
+                <span class="text-slate-300">|</span>
+                <button id="lang-en-mobile" class="lang-switch-btn transition-colors duration-300" data-lang="langBtnLongEn">English</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-20">
+
+        <!-- Hero Section -->
+        <section id="home" class="container mx-auto px-6 py-24 flex flex-col md:flex-row items-center overflow-hidden">
+            <div class="md:w-1/2 text-center md:text-left mb-10 md:mb-0 reveal">
+                <h1 class="font-display text-4xl md:text-6xl font-bold leading-tight mb-4" data-lang="heroTitle">Ajeng Dwita Adhyani</h1>
+                <h2 class="text-xl md:text-2xl text-peach-500 font-semibold mb-6" data-lang="heroSubtitle">Akuntan | Analis Keuangan | Membantu Bisnis Membuat Keputusan Berbasis Data</h2>
+                <p class="text-slate-600 max-w-lg mx-auto md:mx-0 mb-8" data-lang="heroDescription">
+                    Profesional keuangan dan akuntansi berpengalaman dengan rekam jejak yang kuat di berbagai industri. Berkomitmen untuk mendorong efisiensi keuangan dan pertumbuhan bisnis.
+                </p>
+                <div class="flex justify-center md:justify-start space-x-4">
+                    <a href="#contact" class="bg-peach-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-peach-600 transition duration-300 shadow-lg" data-lang="heroContactBtn">Hubungi Saya</a>
+                    <a href="https://www.linkedin.com/in/ajeng-dwita-adhyani-581730253/" target="_blank" class="bg-white text-slate-800 font-bold py-3 px-6 rounded-lg hover:bg-slate-100 transition duration-300 shadow-lg flex items-center">
+                        <i data-lucide="linkedin" class="w-5 h-5 mr-2"></i> LinkedIn
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center reveal" style="transition-delay: 200ms;">
+                <div class="w-64 h-64 md:w-80 md:h-80 bg-peach-100 rounded-full flex items-center justify-center shadow-2xl overflow-hidden">
+                    <img src="pp.png" alt="Foto Profil Ajeng Dwita Adhyani" class="object-cover w-full h-full">
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="bg-white py-20 overflow-hidden">
+            <div class="container mx-auto px-6 reveal">
+                <div class="text-center mb-12">
+                    <h2 class="font-display text-4xl font-bold" data-lang="aboutTitle">Tentang Saya</h2>
+                    <p class="text-slate-500 mt-2" data-lang="aboutSubtitle">Ringkasan Profesional</p>
+                </div>
+                <div class="max-w-3xl mx-auto text-center text-slate-600 leading-relaxed">
+                    <p data-lang="aboutDescription">
+                        Seorang profesional keuangan dan akuntansi yang berpengalaman dengan latar belakang yang kuat dalam industri makanan, layanan kesehatan, dan serat optik. Memiliki keahlian dalam pelaporan keuangan, penganggaran, manajemen treasury, dan pengambilan keputusan berbasis data. Terampil dalam sistem akuntansi, optimalisasi proses, dan peramalan keuangan untuk meningkatkan kinerja bisnis. Mahir dalam Microsoft Excel, manajemen basis data, dan pemecahan masalah analitis. Seorang profesional yang berorientasi pada hasil dengan pola pikir strategis, berkomitmen untuk mendorong efisiensi keuangan dan pertumbuhan bisnis.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-20 overflow-hidden">
+            <div class="container mx-auto px-6 reveal">
+                <div class="text-center mb-12">
+                    <h2 class="font-display text-4xl font-bold" data-lang="experienceTitle">Pengalaman Kerja</h2>
+                    <p class="text-slate-500 mt-2" data-lang="experienceSubtitle">Perjalanan Karir Profesional Saya</p>
+                </div>
+                <div id="experience-container" class="relative max-w-4xl mx-auto border-l-2 border-peach-100 pl-8 space-y-12">
+                    <!-- Experience Items will be populated by JS -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- Education Section -->
+        <section id="education" class="bg-white py-20 overflow-hidden">
+            <div class="container mx-auto px-6 reveal">
+                <div class="text-center mb-12">
+                    <h2 class="font-display text-4xl font-bold" data-lang="educationTitle">Pendidikan</h2>
+                    <p class="text-slate-500 mt-2" data-lang="educationSubtitle">Latar Belakang Akademis</p>
+                </div>
+                <div id="education-container" class="max-w-4xl mx-auto grid md:grid-cols-1 gap-8">
+                    <!-- Education Items will be populated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Certificates Section -->
+        <section id="certificates" class="py-20 overflow-hidden">
+            <div class="container mx-auto px-6 reveal">
+                <div class="text-center mb-12">
+                    <h2 class="font-display text-4xl font-bold" data-lang="certificatesTitle">Sertifikat & Keterlibatan</h2>
+                    <p class="text-slate-500 mt-2" data-lang="certificatesSubtitle">Pengalaman Organisasi dan Kepanitiaan</p>
+                </div>
+                <div id="certificates-container" class="max-w-5xl mx-auto grid md:grid-cols-3 gap-8">
+                    <!-- Certificates Items will be populated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="bg-white py-20 overflow-hidden">
+            <div class="container mx-auto px-6 reveal">
+                <div class="text-center mb-12">
+                    <h2 class="font-display text-4xl font-bold" data-lang="skillsTitle">Keahlian & Kompetensi</h2>
+                    <p class="text-slate-500 mt-2" data-lang="skillsSubtitle">Kemampuan Teknis dan Soft Skills</p>
+                </div>
+                <div id="skills-container" class="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 text-center">
+                    <!-- Skills will be populated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 overflow-hidden">
+            <div class="container mx-auto px-6 reveal">
+                <div class="text-center mb-12">
+                    <h2 class="font-display text-4xl font-bold" data-lang="contactTitle">Hubungi Saya</h2>
+                    <p class="text-slate-500 mt-2" data-lang="contactSubtitle">Mari terhubung dan berdiskusi lebih lanjut.</p>
+                </div>
+                <div class="max-w-lg mx-auto bg-white p-8 rounded-xl shadow-lg">
+                    <div class="space-y-6">
+                        <div class="flex items-center">
+                            <div class="bg-peach-100 p-3 rounded-full">
+                                <i data-lucide="mail" class="w-6 h-6 text-peach-500"></i>
+                            </div>
+                            <a href="mailto:ajengdwitaadhyani15@gmail.com" class="ml-4 text-slate-600 hover:text-peach-500">ajengdwitaadhyani15@gmail.com</a>
+                        </div>
+                         <div class="flex items-center">
+                            <div class="bg-peach-100 p-3 rounded-full">
+                                <i data-lucide="phone" class="w-6 h-6 text-peach-500"></i>
+                            </div>
+                            <a href="http://wa.me/+6285893999739" target="_blank" class="ml-4 text-slate-600 hover:text-peach-500">+62 858-9399-9739</a>
+                        </div>
+                         <div class="flex items-center">
+                            <div class="bg-peach-100 p-3 rounded-full">
+                                <i data-lucide="linkedin" class="w-6 h-6 text-peach-500"></i>
+                            </div>
+                            <a href="https://www.linkedin.com/in/ajeng-dwita-adhyani-581730253/" target="_blank" class="ml-4 text-slate-600 hover:text-peach-500">linkedin.com/in/ajeng-dwita-adhyani</a>
+                        </div>
+                         <div class="flex items-center">
+                            <div class="bg-peach-100 p-3 rounded-full">
+                                <i data-lucide="map-pin" class="w-6 h-6 text-peach-500"></i>
+                            </div>
+                            <p class="ml-4 text-slate-600">Jakarta Selatan, Indonesia</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white mt-20 py-8 border-t border-peach-100">
+        <div class="container mx-auto px-6 text-center text-slate-500">
+            <p data-lang="footerText">&copy; 2024 Ajeng Dwita Adhyani. Dibuat dengan penuh semangat.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Language and Content Data
+        const translations = {
+            id: {
+                navAbout: "Tentang Saya",
+                navExperience: "Pengalaman",
+                navEducation: "Pendidikan",
+                navCertificates: "Sertifikat",
+                navSkills: "Keahlian",
+                navContact: "Kontak",
+                langBtnShortId: "ID",
+                langBtnShortEn: "EN",
+                langBtnLongId: "Indonesia",
+                langBtnLongEn: "Inggris",
+                heroTitle: "Ajeng Dwita Adhyani",
+                heroSubtitle: "Akuntan | Analis Keuangan | Membantu Bisnis Membuat Keputusan Berbasis Data",
+                heroDescription: "Profesional keuangan dan akuntansi berpengalaman dengan rekam jejak yang kuat di berbagai industri. Berkomitmen untuk mendorong efisiensi keuangan dan pertumbuhan bisnis.",
+                heroContactBtn: "Hubungi Saya",
+                aboutTitle: "Tentang Saya",
+                aboutSubtitle: "Ringkasan Profesional",
+                aboutDescription: "Seorang profesional keuangan dan akuntansi yang berpengalaman dengan latar belakang yang kuat dalam industri makanan, layanan kesehatan, dan serat optik. Memiliki keahlian dalam pelaporan keuangan, penganggaran, manajemen treasury, dan pengambilan keputusan berbasis data. Terampil dalam sistem akuntansi, optimalisasi proses, dan peramalan keuangan untuk meningkatkan kinerja bisnis. Mahir dalam Microsoft Excel, manajemen basis data, dan pemecahan masalah analitis. Seorang profesional yang berorientasi pada hasil dengan pola pikir strategis, berkomitmen untuk mendorong efisiensi keuangan dan pertumbuhan bisnis.",
+                experienceTitle: "Pengalaman Kerja",
+                experienceSubtitle: "Perjalanan Karir Profesional Saya",
+                experienceItems: [
+                    { date: "08/2023 - 11/2023", title: "Treasury Officer", company: "PT Asianet Media Teknologi", url: "https://asianet.co.id/", certificateUrl: "https://drive.google.com/drive/folders/1Ij3WGXZkoE_zaU9CP__lObQw1tfoCy4a?usp=sharing", points: ["Mengelola arus kas perusahaan untuk memastikan ketersediaan dana yang optimal.", "Mengawasi dan mengelola kas kecil untuk kebutuhan operasional harian.", "Melakukan rekonsiliasi bank secara berkala untuk menyelaraskan laporan bank dan catatan internal.", "Mengelola utang usaha (accounts payable) untuk memastikan pembayaran tepat waktu.", "Menangani transaksi pembayaran melalui transfer bank atau metode lain.", "Membangun hubungan baik dengan institusi perbankan.", "Mengelola dan memelihara basis data keuangan untuk pelaporan dan analisis yang akurat."] },
+                    { date: "01/2023 - 06/2023", title: "Accountant", company: "PT Imuni Indonesia Sehat", url: "https://imuni.id/", certificateUrl: "https://drive.google.com/drive/folders/1IIDlvWAYCaZyfq8uPYmDmZIT3RA6_8rW", points: ["Mengelola stok persediaan untuk memastikan akurasi dan tingkat yang optimal.", "Menyiapkan laporan jurnal, buku besar, dan transaksi bank.", "Melakukan stock opname untuk memverifikasi catatan inventaris.", "Meninjau basis data untuk memastikan pembayaran pajak yang akurat dan tepat waktu.", "Memelihara dan mengawasi aset tetap perusahaan.", "Menyiapkan neraca saldo untuk pelaporan keuangan yang akurat."] },
+                    { date: "07/2017 - 06/2022", title: "Finance Positions", company: "PT Dagsap Endura Eatore", url: "https://www.dagsap.co.id/", certificateUrl: "https://drive.google.com/drive/folders/1nwafJ1njpqmdV-kmCyzty7GZsl3YFQcc?usp=drive_link", points: ["Mengelola arus kas dan kas kecil untuk kelancaran operasional.", "Melakukan rekonsiliasi bank yang akurat dan tepat waktu.", "Mengelola utang usaha (AP) dan piutang usaha (AR).", "Berkomunikasi secara efektif dengan vendor dan pelanggan.", "Menyiapkan pembayaran pajak dan memastikan kepatuhan terhadap peraturan.", "Memelihara entri jurnal dan pelaporan keuangan yang akurat.", "Melakukan stock opname untuk memverifikasi tingkat persediaan."] }
+                ],
+                educationTitle: "Pendidikan",
+                educationSubtitle: "Latar Belakang Akademis",
+                educationItems: [
+                    { degree: "Sarjana Akuntansi", school: "Universitas Al-Azhar Indonesia", period: "2018 - 2022", detail: "IPK: 3.48", url: "https://uai.ac.id/", activities: "Aktivitas: Wakil Kepala Departemen Sumber Daya Manusia di UKKM LDK Karisma UAI.", links: [ { name: 'Surat Keterangan Lulus', url: 'https://drive.google.com/file/d/1_lOAyTTYtGRu_wf9SkxxsY6tLQ4nxDrJ/view?usp=drive_link', icon: 'file-text' } ] },
+                    { degree: "Akuntansi", school: "SMK Negeri 15 Jakarta", period: "2014 - 2017", detail: "", url: "https://www.smkn15jakarta.sch.id/", activities: "", links: [ { name: 'Daftar Nilai', url: 'https://drive.google.com/drive/folders/1GVxHkDJQvOPW8JNLmmSD_18sbkpjyZgr', icon: 'file-text' }, { name: 'Kepesertaan LKS', url: 'https://drive.google.com/drive/folders/1zKTV_nsiUhzZiUbreViYYZXGvvX_bvgC', icon: 'award' }, { name: 'Sertifikat Kompetensi', url: 'https://drive.google.com/file/d/1EnoVE0KGZcxL_SwPZUfllfSqwuAVcpJH/view?usp=drive_link', icon: 'star' }, { name: 'Praktik Industri (Auto 2000)', url: 'https://drive.google.com/file/d/1uCfjRP4CppWtzoKDrl9kZZ2CbtNrYMAK/view?usp=drive_link', icon: 'wrench' }, { name: 'Praktik Industri (Bank DKI)', url: 'https://drive.google.com/file/d/1jw5Z9UTUKwY6IflG8MGdE7gHUZvT_rIp/view?usp=drive_link', icon: 'landmark' }, { name: 'Sertifikat Zahir', url: 'https://drive.google.com/file/d/1yNTqe3gaeiBj_l-JfH-QivuEM21VemYm/view?usp=drive_link', icon: 'file-badge' }, { name: 'Sertifikat BNSP', url: 'https://drive.google.com/file/d/1HE-eIKHuXXsBynX8KJYCoN0KEyLjACke/view?usp=drive_link', icon: 'file-badge' } ] }
+                ],
+                certificatesTitle: "Sertifikat & Keterlibatan",
+                certificatesSubtitle: "Pengalaman Organisasi dan Kepanitiaan",
+                certificatesItems: [
+                    { title: "Ketua KPPS", issuer: "KPU (Komisi Pemilihan Umum)", date: "Jan 2024 - Feb 2024", url: "https://drive.google.com/file/d/122ntS2kt3IIZMq7mS_EvwY90Tvzhl-gZ/view?usp=drive_link", description: "Memimpin proses pemilihan di TPS, memastikan kepatuhan terhadap peraturan, mengawasi pendaftaran pemilih, distribusi surat suara, dan penghitungan suara." },
+                    { title: "Ketua Pelaksana Bakti Sosial", issuer: "LDK KARISMA UAI", date: "Mei 2021", url: "https://drive.google.com/file/d/1gpCrkJNKb05kB_tQnoOHIQPceIrOdmcM/view?usp=drive_link", description: "Memimpin program amal yang berfokus pada distribusi donasi selama Ramadhan, mengelola penggalangan dana, dan mengawasi logistik untuk memaksimalkan dampak." },
+                    { title: "Ketua Panitia Acara Ngabuburit", issuer: "LDK KARISMA & HIMAZI UAI", date: "Apr 2021", url: "https://drive.google.com/file/d/1gpCrkJNKb05kB_tQnoOHIQPceIrOdmcM/view?usp=drive_link", description: "Merencanakan dan melaksanakan acara komunitas Ramadhan, mengoordinasikan kegiatan, dan memastikan kelancaran acara melalui komunikasi yang efektif." }
+                ],
+                skillsTitle: "Keahlian & Kompetensi",
+                skillsSubtitle: "Kemampuan Teknis dan Soft Skills",
+                skillsItems: [
+                    { icon: "book-check", name: "Buku Besar" }, { icon: "landmark", name: "Rekonsiliasi Bank" }, { icon: "archive", name: "Kontrol Inventaris" }, { icon: "file-input", name: "Utang Usaha" }, { icon: "file-output", name: "Piutang Usaha" }, { icon: "file-search", name: "Audit Keuangan" }, { icon: "piggy-bank", name: "Akuntansi Treasury" }, { icon: "file-spreadsheet", name: "Microsoft Excel" }, { icon: "trending-up", name: "Peramalan" }, { icon: "database", name: "Interpretasi Data" }, { icon: "line-chart", name: "Keterampilan Analitis" }, { icon: "puzzle", name: "Pemecahan Masalah" }, { icon: "users", name: "Kepemimpinan" }, { icon: "message-square", name: "Komunikasi" }, { icon: "laptop", name: "QuickBooks" }, { icon: "laptop", name: "Xero" }, { icon: "laptop", name: "MYOB" }, { icon: "laptop", name: "Zahir" }
+                ],
+                contactTitle: "Hubungi Saya",
+                contactSubtitle: "Mari terhubung dan berdiskusi lebih lanjut.",
+                footerText: "&copy; 2024 Ajeng Dwita Adhyani. Dibuat dengan penuh semangat.",
+                certificateTooltip: "Lihat Surat Keterangan"
+            },
+            en: {
+                navAbout: "About",
+                navExperience: "Experience",
+                navEducation: "Education",
+                navCertificates: "Certificates",
+                navSkills: "Skills",
+                navContact: "Contact",
+                langBtnShortId: "ID",
+                langBtnShortEn: "EN",
+                langBtnLongId: "Indonesian",
+                langBtnLongEn: "English",
+                heroTitle: "Ajeng Dwita Adhyani",
+                heroSubtitle: "Accountant | Financial Analyst | Helping Businesses Make Data-Driven Decisions",
+                heroDescription: "Experienced finance and accounting professional with a strong track record across various industries. Committed to driving financial efficiency and business growth.",
+                heroContactBtn: "Contact Me",
+                aboutTitle: "About Me",
+                aboutSubtitle: "Professional Summary",
+                aboutDescription: "An experienced finance and accounting professional with a strong background in the food, health services, and fiber optics industries. Expertise in financial reporting, budgeting, treasury management, and data-driven decision-making. Skilled in accounting systems, process optimization, and financial forecasting to enhance business performance. Proficient in Microsoft Excel, database management, and analytical problem-solving. A results-driven professional with a strategic mindset, committed to driving financial efficiency and business growth.",
+                experienceTitle: "Work Experience",
+                experienceSubtitle: "My Professional Career Journey",
+                experienceItems: [
+                    { date: "Aug 2023 - Nov 2023", title: "Treasury Officer", company: "PT Asianet Media Teknologi", url: "https://asianet.co.id/", certificateUrl: "https://drive.google.com/drive/folders/1Ij3WGXZkoE_zaU9CP__lObQw1tfoCy4a?usp=sharing", points: ["Managed company cash flow to ensure optimal fund availability.", "Oversaw and managed petty cash for daily operational needs.", "Conducted regular bank reconciliations to align bank statements and internal records.", "Managed accounts payable to ensure timely payments.", "Handled payment transactions via bank transfers or other methods.", "Built and maintained good relationships with banking institutions.", "Managed and maintained financial databases for accurate reporting and analysis."] },
+                    { date: "Jan 2023 - Jun 2023", title: "Accountant", company: "PT Imuni Indonesia Sehat", url: "https://imuni.id/", certificateUrl: "https://drive.google.com/drive/folders/1IIDlvWAYCaZyfq8uPYmDmZIT3RA6_8rW", points: ["Managed inventory stock to ensure accuracy and optimal levels.", "Prepared reports for journals, general ledger, and bank transactions.", "Conducted stocktaking (stock opname) to verify inventory records.", "Reviewed databases to ensure accurate and timely tax payments.", "Maintained and oversaw the company's fixed assets.", "Prepared the trial balance for accurate financial reporting."] },
+                    { date: "Jul 2017 - Jun 2022", title: "Finance Positions", company: "PT Dagsap Endura Eatore", url: "https://www.dagsap.co.id/", certificateUrl: "https://drive.google.com/drive/folders/1nwafJ1njpqmdV-kmCyzty7GZsl3YFQcc?usp=drive_link", points: ["Managed cash flow and petty cash for smooth operations.", "Conducted accurate and timely bank reconciliations.", "Managed accounts payable (AP) and accounts receivable (AR).", "Communicated effectively with vendors and customers.", "Prepared tax payments and ensured compliance with regulations.", "Maintained accurate journal entries and financial reporting.", "Conducted stock-taking to verify inventory levels."] }
+                ],
+                educationTitle: "Education",
+                educationSubtitle: "Academic Background",
+                educationItems: [
+                    { degree: "Bachelor of Accounting", school: "Universitas Al-Azhar Indonesia", period: "2018 - 2022", detail: "GPA: 3.48", url: "https://uai.ac.id/en/home/", activities: "Activities: Served as Vice Head of the Human Resources Department at UKKM LDK Karisma UAI.", links: [ { name: 'Certificate of Graduation', url: 'https://drive.google.com/file/d/1_lOAyTTYtGRu_wf9SkxxsY6tLQ4nxDrJ/view?usp=drive_link', icon: 'file-text' } ] },
+                    { degree: "Vocational High School in Accounting", school: "SMK Negeri 15 Jakarta", period: "2014 - 2017", detail: "", url: "https://www.smkn15jakarta.sch.id/", activities: "", links: [ { name: 'Transcript of Grades', url: 'https://drive.google.com/drive/folders/1GVxHkDJQvOPW8JNLmmSD_18sbkpjyZgr', icon: 'file-text' }, { name: 'Competition Certificate', url: 'https://drive.google.com/drive/folders/1zKTV_nsiUhzZiUbreViYYZXGvvX_bvgC', icon: 'award' }, { name: 'Competency Certificate', url: 'https://drive.google.com/file/d/1EnoVE0KGZcxL_SwPZUfllfSqwuAVcpJH/view?usp=drive_link', icon: 'star' }, { name: 'Internship (Auto 2000)', url: 'https://drive.google.com/file/d/1uCfjRP4CppWtzoKDrl9kZZ2CbtNrYMAK/view?usp=drive_link', icon: 'wrench' }, { name: 'Internship (Bank DKI)', url: 'https://drive.google.com/file/d/1jw5Z9UTUKwY6IflG8MGdE7gHUZvT_rIp/view?usp=drive_link', icon: 'landmark' }, { name: 'Zahir Certificate', url: 'https://drive.google.com/file/d/1yNTqe3gaeiBj_l-JfH-QivuEM21VemYm/view?usp=drive_link', icon: 'file-badge' }, { name: 'BNSP Certificate', url: 'https://drive.google.com/file/d/1HE-eIKHuXXsBynX8KJYCoN0KEyLjACke/view?usp=drive_link', icon: 'file-badge' } ] }
+                ],
+                certificatesTitle: "Certificates & Involvements",
+                certificatesSubtitle: "Organizational and Committee Experience",
+                certificatesItems: [
+                    { title: "Chairperson of Polling Station Committee", issuer: "General Elections Commission (KPU)", date: "Jan 2024 - Feb 2024", url: "https://drive.google.com/file/d/122ntS2kt3IIZMq7mS_EvwY90Tvzhl-gZ/view?usp=drive_link", description: "Led the election process at the polling station, ensured compliance with regulations, and supervised voter registration, ballot distribution, and vote counting." },
+                    { title: "Chief Executive of Social Service Program", issuer: "LDK KARISMA UAI", date: "May 2021", url: "https://drive.google.com/file/d/1gpCrkJNKb05kB_tQnoOHIQPceIrOdmcM/view?usp=drive_link", description: "Led a charity program focusing on donation distribution during Ramadan, managed fundraising, and oversaw logistics to maximize impact." },
+                    { title: "Chairman of Ramadan Event Committee", issuer: "LDK KARISMA & HIMAZI UAI", date: "Apr 2021", url: "https://drive.google.com/file/d/1gpCrkJNKb05kB_tQnoOHIQPceIrOdmcM/view?usp=drive_link", description: "Planned and executed a community Ramadan event, coordinated activities, and ensured smooth execution through effective communication." }
+                ],
+                skillsTitle: "Skills & Competencies",
+                skillsSubtitle: "Technical and Soft Skills",
+                skillsItems: [
+                    { icon: "book-check", name: "General Ledgers" }, { icon: "landmark", name: "Bank Reconciliation" }, { icon: "archive", name: "Inventory Control" }, { icon: "file-input", name: "Accounts Payable" }, { icon: "file-output", name: "Accounts Receivable" }, { icon: "file-search", name: "Financial Audits" }, { icon: "piggy-bank", name: "Treasury Accounting" }, { icon: "file-spreadsheet", name: "Microsoft Excel" }, { icon: "trending-up", name: "Forecasting" }, { icon: "database", name: "Data Interpretation" }, { icon: "line-chart", name: "Analytical Skills" }, { icon: "puzzle", name: "Problem-solving" }, { icon: "users", name: "Leadership" }, { icon: "message-square", name: "Communication" }, { icon: "laptop", name: "QuickBooks" }, { icon: "laptop", name: "Xero" }, { icon: "laptop", name: "MYOB" }, { icon: "laptop", name: "Zahir" }
+                ],
+                contactTitle: "Contact Me",
+                contactSubtitle: "Let's connect and discuss further.",
+                footerText: "&copy; 2024 Ajeng Dwita Adhyani. Created with passion.",
+                certificateTooltip: "View Certificate of Employment"
+            }
+        };
+
+        let currentLang = 'id';
+        
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        const setupObservers = () => {
+             document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+        };
+        
+        const switchLanguage = (lang) => {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                const key = el.getAttribute('data-lang');
+                const mainKey = key.replace('Mobile', '');
+                
+                if (translations[lang][mainKey]) {
+                    el.innerHTML = translations[lang][mainKey];
+                } else if (translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+
+            renderExperience(lang);
+            renderEducation(lang);
+            renderCertificates(lang);
+            renderSkills(lang);
+
+            document.querySelectorAll('.lang-switch-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.id.includes(lang)) btn.classList.add('active');
+            });
+            
+            lucide.createIcons();
+            setupObservers();
+        };
+        
+        const renderExperience = (lang) => {
+            const container = document.getElementById('experience-container');
+            container.innerHTML = '';
+            translations[lang].experienceItems.forEach(item => {
+                const pointsHTML = item.points.map(point => `<li>${point}</li>`).join('');
+                const certificateLink = item.certificateUrl !== '#' ? `
+                    <a href="${item.certificateUrl}" target="_blank" class="inline-block ml-2 text-peach-500 hover:text-peach-600" title="${translations[lang].certificateTooltip}">
+                        <i data-lucide="external-link" class="w-4 h-4"></i>
+                    </a>` : '';
+                container.innerHTML += `
+                <div class="relative reveal">
+                    <div class="absolute -left-10 mt-1.5 w-4 h-4 bg-peach-500 rounded-full border-4 border-peach-50 box-content"></div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg border-l-4 border-peach-500 ml-4">
+                        <p class="text-sm text-slate-500">${item.date}</p>
+                        <h3 class="text-xl font-bold mt-1">${item.title}</h3>
+                        <p class="text-slate-600 font-medium">
+                            <a href="${item.url}" target="_blank" class="hover:underline">${item.company}</a>
+                            ${certificateLink}
+                        </p>
+                        <ul class="mt-3 text-sm text-slate-500 list-disc list-inside space-y-1">${pointsHTML}</ul>
+                    </div>
+                </div>`;
+            });
+        };
+
+        const renderEducation = (lang) => {
+            const container = document.getElementById('education-container');
+            container.innerHTML = '';
+            translations[lang].educationItems.forEach(item => {
+                const activitiesHTML = item.activities ? `<p class="text-sm text-slate-500 mt-2 italic">${item.activities}</p>` : '';
+                const linksHTML = item.links.map(link => `
+                    <a href="${link.url}" target="_blank" class="link-chip" title="${link.name}">
+                        <i data-lucide="${link.icon}" class="w-3 h-3"></i>
+                        <span>${link.name}</span>
+                    </a>
+                `).join('');
+                
+                container.innerHTML += `
+                <div class="bg-peach-50 p-6 rounded-lg transition hover:shadow-lg hover:-translate-y-1 reveal">
+                    <p class="text-sm text-peach-500 font-semibold">${item.period}</p>
+                    <h3 class="text-xl font-bold mt-1 text-slate-800">${item.degree}</h3>
+                    <a href="${item.url}" target="_blank" class="text-slate-600 hover:underline">${item.school}</a>
+                    ${item.detail ? `<p class="text-sm text-slate-500 mt-2">${item.detail}</p>` : ''}
+                    ${activitiesHTML}
+                    <div class="mt-4 flex flex-wrap gap-2">${linksHTML}</div>
+                </div>`;
+            });
+        };
+        
+        const renderCertificates = (lang) => {
+            const container = document.getElementById('certificates-container');
+            container.innerHTML = '';
+            translations[lang].certificatesItems.forEach(item => {
+                container.innerHTML += `
+                <a href="${item.url}" target="_blank" class="bg-white p-6 rounded-lg shadow-md transition hover:shadow-xl hover:-translate-y-1 reveal flex flex-col group">
+                     <div class="flex items-center text-peach-500 mb-3">
+                        <i data-lucide="award" class="w-5 h-5 mr-2 flex-shrink-0"></i>
+                        <p class="text-sm font-semibold">${item.date}</p>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-800 group-hover:text-peach-500 transition-colors">${item.title}</h3>
+                    <p class="text-sm text-slate-600 font-medium mb-2">${item.issuer}</p>
+                    <p class="text-sm text-slate-500 flex-grow">${item.description}</p>
+                </a>`;
+            });
+        };
+
+        const renderSkills = (lang) => {
+            const container = document.getElementById('skills-container');
+            container.innerHTML = '';
+            translations[lang].skillsItems.forEach(item => {
+                container.innerHTML += `
+                <div class="bg-peach-50 p-4 rounded-lg flex flex-col items-center justify-center h-32 transition hover:shadow-lg hover:-translate-y-1 reveal">
+                    <i data-lucide="${item.icon}" class="text-peach-500 w-8 h-8 mb-2"></i>
+                    <p class="font-semibold text-center text-sm">${item.name}</p>
+                </div>`;
+            });
+        };
+
+        // Event Listeners for language switch
+        ['lang-id', 'lang-en', 'lang-id-mobile', 'lang-en-mobile'].forEach(id => {
+            document.getElementById(id).addEventListener('click', () => {
+                const lang = id.includes('en') ? 'en' : 'id';
+                switchLanguage(lang);
+            });
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+                if (!mobileMenu.classList.contains('hidden')) mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Initial Render
+        document.addEventListener('DOMContentLoaded', () => {
+            switchLanguage('id');
+        });
+    </script>
+
+</body>
+</html>
+
