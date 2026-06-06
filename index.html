@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,103 +32,142 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
         }
+
         .font-display {
             font-family: 'Playfair Display', serif;
         }
+
         /* Reveal animation */
         .reveal {
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
+
         .reveal.visible {
             opacity: 1;
             transform: translateY(0);
         }
     </style>
 </head>
+
 <body class="bg-peach-50 text-slate-800 antialiased">
 
     <!-- Header / Navbar -->
-    <header class="bg-peach-50/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-sm border-b border-peach-100/30">
+    <header
+        class="bg-peach-50/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-sm border-b border-peach-100/30">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center relative">
-            <a href="#" class="font-display text-xl sm:text-2xl font-bold text-slate-800 hover:text-peach-500 transition-colors duration-300">Ajeng D. Adhyani</a>
-            
+            <a href="#"
+                class="font-display text-xl sm:text-2xl font-bold text-slate-800 hover:text-peach-500 transition-colors duration-300">Ajeng
+                Dwita Adhyani</a>
+
             <div class="flex items-center space-x-4 sm:space-x-6 md:space-x-8">
                 <!-- Desktop Nav -->
                 <nav class="hidden md:flex space-x-6 lg:space-x-8 font-medium">
-                    <a href="#about" class="text-slate-600 hover:text-peach-500 transition duration-300" data-lang="navAbout">Tentang Saya</a>
-                    <a href="#experience" class="text-slate-600 hover:text-peach-500 transition duration-300" data-lang="navExperience">Pengalaman</a>
-                    <a href="#education" class="text-slate-600 hover:text-peach-500 transition duration-300" data-lang="navEducation">Pendidikan</a>
-                    <a href="#certificates" class="text-slate-600 hover:text-peach-500 transition duration-300" data-lang="navCertificates">Sertifikat</a>
-                    <a href="#skills" class="text-slate-600 hover:text-peach-500 transition duration-300" data-lang="navSkills">Keahlian</a>
-                    <a href="#contact" class="text-slate-600 hover:text-peach-500 transition duration-300" data-lang="navContact">Kontak</a>
+                    <a href="#about" class="text-slate-600 hover:text-peach-500 transition duration-300"
+                        data-lang="navAbout">Tentang Saya</a>
+                    <a href="#experience" class="text-slate-600 hover:text-peach-500 transition duration-300"
+                        data-lang="navExperience">Pengalaman</a>
+                    <a href="#education" class="text-slate-600 hover:text-peach-500 transition duration-300"
+                        data-lang="navEducation">Pendidikan</a>
+                    <a href="#certificates" class="text-slate-600 hover:text-peach-500 transition duration-300"
+                        data-lang="navCertificates">Sertifikat</a>
+                    <a href="#skills" class="text-slate-600 hover:text-peach-500 transition duration-300"
+                        data-lang="navSkills">Keahlian</a>
+                    <a href="#contact" class="text-slate-600 hover:text-peach-500 transition duration-300"
+                        data-lang="navContact">Kontak</a>
                 </nav>
-                
+
                 <!-- Language Selector Desktop -->
                 <div class="hidden md:flex items-center bg-slate-200/50 p-1 rounded-full border border-slate-300/30">
-                    <button id="lang-id" class="lang-switch-btn px-3 py-1 rounded-full text-xs font-semibold transition-all duration-300 active" data-lang="langBtnShortId">ID</button>
-                    <button id="lang-en" class="lang-switch-btn px-3 py-1 rounded-full text-xs font-semibold transition-all duration-300" data-lang="langBtnShortEn">EN</button>
+                    <button id="lang-id"
+                        class="lang-switch-btn px-3 py-1 rounded-full text-xs font-semibold transition-all duration-300 active"
+                        data-lang="langBtnShortId">ID</button>
+                    <button id="lang-en"
+                        class="lang-switch-btn px-3 py-1 rounded-full text-xs font-semibold transition-all duration-300"
+                        data-lang="langBtnShortEn">EN</button>
                 </div>
 
                 <!-- LinkedIn Desktop Link -->
-                <a href="https://www.linkedin.com/in/ajeng-dwita-adhyani-581730253/" target="_blank" class="hidden md:flex items-center justify-center p-2 rounded-xl bg-slate-100 hover:bg-peach-100 text-slate-600 hover:text-peach-500 border border-slate-200/40 shadow-sm transition-all duration-300 hover:scale-105" title="LinkedIn">
+                <a href="https://www.linkedin.com/in/ajeng-dwita-adhyani-581730253/" target="_blank"
+                    class="hidden md:flex items-center justify-center p-2 rounded-xl bg-slate-100 hover:bg-peach-100 text-slate-600 hover:text-peach-500 border border-slate-200/40 shadow-sm transition-all duration-300 hover:scale-105"
+                    title="LinkedIn">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4.5 h-4.5">
-                        <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.15V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.5c1.8 0 3.4 1.14 3.4 4.08z"/>
+                        <path
+                            d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.15V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.5c1.8 0 3.4 1.14 3.4 4.08z" />
                     </svg>
                 </a>
             </div>
 
             <!-- Mobile Menu Toggle Button -->
-            <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg hover:bg-peach-100 text-slate-700 transition duration-300 flex items-center justify-center focus:outline-none">
+            <button id="mobile-menu-button"
+                class="md:hidden p-2 rounded-lg hover:bg-peach-100 text-slate-700 transition duration-300 flex items-center justify-center focus:outline-none">
                 <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
 
             <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-lg border-b border-peach-100 shadow-lg px-6 py-5 flex flex-col gap-1 z-40 transition-all duration-300 ease-in-out md:hidden">
-                <a href="#about" class="flex items-center space-x-3 py-2.5 px-3 rounded-xl hover:bg-peach-50 text-slate-600 hover:text-peach-500 transition duration-300">
+            <div id="mobile-menu"
+                class="hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-lg border-b border-peach-100 shadow-lg px-6 py-5 flex flex-col gap-1 z-40 transition-all duration-300 ease-in-out md:hidden">
+                <a href="#about"
+                    class="flex items-center space-x-3 py-2.5 px-3 rounded-xl hover:bg-peach-50 text-slate-600 hover:text-peach-500 transition duration-300">
                     <i data-lucide="user" class="w-4 h-4 flex-shrink-0"></i>
                     <span data-lang="navAboutMobile">Tentang Saya</span>
                 </a>
-                <a href="#experience" class="flex items-center space-x-3 py-2.5 px-3 rounded-xl hover:bg-peach-50 text-slate-600 hover:text-peach-500 transition duration-300">
+                <a href="#experience"
+                    class="flex items-center space-x-3 py-2.5 px-3 rounded-xl hover:bg-peach-50 text-slate-600 hover:text-peach-500 transition duration-300">
                     <i data-lucide="briefcase" class="w-4 h-4 flex-shrink-0"></i>
                     <span data-lang="navExperienceMobile">Pengalaman</span>
                 </a>
-                <a href="#education" class="flex items-center space-x-3 py-2.5 px-3 rounded-xl hover:bg-peach-50 text-slate-600 hover:text-peach-500 transition duration-300">
+                <a href="#education"
+                    class="flex items-center space-x-3 py-2.5 px-3 rounded-xl hover:bg-peach-50 text-slate-600 hover:text-peach-500 transition duration-300">
                     <i data-lucide="graduation-cap" class="w-4 h-4 flex-shrink-0"></i>
                     <span data-lang="navEducationMobile">Pendidikan</span>
                 </a>
-                <a href="#certificates" class="flex items-center space-x-3 py-2.5 px-3 rounded-xl hover:bg-peach-50 text-slate-600 hover:text-peach-500 transition duration-300">
+                <a href="#certificates"
+                    class="flex items-center space-x-3 py-2.5 px-3 rounded-xl hover:bg-peach-50 text-slate-600 hover:text-peach-500 transition duration-300">
                     <i data-lucide="award" class="w-4 h-4 flex-shrink-0"></i>
                     <span data-lang="navCertificatesMobile">Sertifikat</span>
                 </a>
-                <a href="#skills" class="flex items-center space-x-3 py-2.5 px-3 rounded-xl hover:bg-peach-50 text-slate-600 hover:text-peach-500 transition duration-300">
+                <a href="#skills"
+                    class="flex items-center space-x-3 py-2.5 px-3 rounded-xl hover:bg-peach-50 text-slate-600 hover:text-peach-500 transition duration-300">
                     <i data-lucide="settings" class="w-4 h-4 flex-shrink-0"></i>
                     <span data-lang="navSkillsMobile">Keahlian</span>
                 </a>
-                <a href="#contact" class="flex items-center space-x-3 py-2.5 px-3 rounded-xl hover:bg-peach-50 text-slate-600 hover:text-peach-500 transition duration-300">
+                <a href="#contact"
+                    class="flex items-center space-x-3 py-2.5 px-3 rounded-xl hover:bg-peach-50 text-slate-600 hover:text-peach-500 transition duration-300">
                     <i data-lucide="mail" class="w-4 h-4 flex-shrink-0"></i>
                     <span data-lang="navContactMobile">Kontak</span>
                 </a>
                 <div class="h-px bg-slate-100 my-2"></div>
                 <div class="flex items-center justify-between pt-2 px-3">
-                    <span class="text-xs text-slate-400 font-medium flex items-center gap-1.5"><i data-lucide="globe" class="w-3.5 h-3.5 flex-shrink-0"></i> Language / Bahasa</span>
+                    <span class="text-xs text-slate-400 font-medium flex items-center gap-1.5"><i data-lucide="globe"
+                            class="w-3.5 h-3.5 flex-shrink-0"></i> Language / Bahasa</span>
                     <div class="flex items-center bg-slate-100 p-0.5 rounded-full border border-slate-200">
-                        <button id="lang-id-mobile" class="lang-switch-btn px-3 py-1 rounded-full text-xs font-semibold transition-all duration-300" data-lang="langBtnLongId">Indonesia</button>
-                        <button id="lang-en-mobile" class="lang-switch-btn px-3 py-1 rounded-full text-xs font-semibold transition-all duration-300" data-lang="langBtnLongEn">English</button>
+                        <button id="lang-id-mobile"
+                            class="lang-switch-btn px-3 py-1 rounded-full text-xs font-semibold transition-all duration-300"
+                            data-lang="langBtnLongId">Indonesia</button>
+                        <button id="lang-en-mobile"
+                            class="lang-switch-btn px-3 py-1 rounded-full text-xs font-semibold transition-all duration-300"
+                            data-lang="langBtnLongEn">English</button>
                     </div>
                 </div>
                 <!-- Mobile LinkedIn link bar -->
                 <div class="flex items-center justify-center gap-4 mt-3 pt-3 border-t border-slate-100">
-                    <a href="https://www.linkedin.com/in/ajeng-dwita-adhyani-581730253/" target="_blank" class="flex items-center justify-center p-2.5 rounded-xl bg-slate-50 hover:bg-peach-50 text-slate-600 hover:text-peach-500 border border-slate-200/30 transition-all duration-300 w-full text-xs font-semibold gap-2 shadow-sm" title="LinkedIn">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4.5 h-4.5">
-                            <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.15V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.5c1.8 0 3.4 1.14 3.4 4.08z"/>
+                    <a href="https://www.linkedin.com/in/ajeng-dwita-adhyani-581730253/" target="_blank"
+                        class="flex items-center justify-center p-2.5 rounded-xl bg-slate-50 hover:bg-peach-50 text-slate-600 hover:text-peach-500 border border-slate-200/30 transition-all duration-300 w-full text-xs font-semibold gap-2 shadow-sm"
+                        title="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="w-4.5 h-4.5">
+                            <path
+                                d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.15V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.5c1.8 0 3.4 1.14 3.4 4.08z" />
                         </svg>
                         LinkedIn Profile
                     </a>
@@ -141,20 +181,31 @@
         <!-- Hero Section -->
         <section id="home" class="container mx-auto px-6 py-20 md:py-32 flex flex-col md:flex-row items-center gap-12">
             <div class="md:w-1/2 text-center md:text-left reveal">
-                <h1 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 text-slate-800" data-lang="heroTitle">Ajeng Dwita Adhyani</h1>
-                <h2 class="text-lg sm:text-xl md:text-2xl text-peach-500 font-semibold mb-6 leading-relaxed" data-lang="heroSubtitle">Akuntan | Analis Keuangan | Membantu Bisnis Membuat Keputusan Berbasis Data</h2>
-                <p class="text-slate-600 text-sm sm:text-base max-w-lg mx-auto md:mx-0 mb-8 leading-relaxed" data-lang="heroDescription">
-                    Profesional keuangan dan akuntansi berpengalaman dengan rekam jejak yang kuat di berbagai industri. Berkomitmen untuk mendorong efisiensi keuangan dan pertumbuhan bisnis.
+                <h1 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 text-slate-800"
+                    data-lang="heroTitle">Ajeng Dwita Adhyani</h1>
+                <h2 class="text-lg sm:text-xl md:text-2xl text-peach-500 font-semibold mb-6 leading-relaxed"
+                    data-lang="heroSubtitle">Akuntan | Analis Keuangan | Membantu Bisnis Membuat Keputusan Berbasis Data
+                </h2>
+                <p class="text-slate-600 text-sm sm:text-base max-w-lg mx-auto md:mx-0 mb-8 leading-relaxed"
+                    data-lang="heroDescription">
+                    Profesional keuangan dan akuntansi berpengalaman dengan rekam jejak yang kuat di berbagai industri.
+                    Berkomitmen untuk mendorong efisiensi keuangan dan pertumbuhan bisnis.
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-                    <a href="#contact" class="bg-peach-500 text-white font-bold py-3 px-6 rounded-xl hover:bg-peach-600 transition-all duration-300 shadow-md hover:shadow-lg text-center flex justify-center items-center gap-2 w-full sm:w-auto" data-lang="heroContactBtn">Hubungi Saya</a>
-                    <a href="https://www.linkedin.com/in/ajeng-dwita-adhyani-581730253/" target="_blank" class="bg-white text-slate-800 font-bold py-3 px-6 rounded-xl hover:bg-slate-50 border border-slate-200 transition-all duration-300 shadow-sm hover:shadow-md flex items-center justify-center gap-2 w-full sm:w-auto hover:scale-[1.02]">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 flex-shrink-0 text-slate-600">
-                            <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.15V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.5c1.8 0 3.4 1.14 3.4 4.08z"/>
+                    <a href="#contact"
+                        class="bg-peach-500 text-white font-bold py-3 px-6 rounded-xl hover:bg-peach-600 transition-all duration-300 shadow-md hover:shadow-lg text-center flex justify-center items-center gap-2 w-full sm:w-auto"
+                        data-lang="heroContactBtn">Hubungi Saya</a>
+                    <a href="https://www.linkedin.com/in/ajeng-dwita-adhyani-581730253/" target="_blank"
+                        class="bg-white text-slate-800 font-bold py-3 px-6 rounded-xl hover:bg-slate-50 border border-slate-200 transition-all duration-300 shadow-sm hover:shadow-md flex items-center justify-center gap-2 w-full sm:w-auto hover:scale-[1.02]">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="w-5 h-5 flex-shrink-0 text-slate-600">
+                            <path
+                                d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.15V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.5c1.8 0 3.4 1.14 3.4 4.08z" />
                         </svg>
                         LinkedIn
                     </a>
-                    <a href="./Ajeng_Dwita_Adhyani-Admin_Finance-CV.pdf" download="Ajeng Dwita Adhyani - CV.pdf" class="bg-white text-slate-800 font-bold py-3 px-6 rounded-xl hover:bg-slate-50 border border-slate-200 transition-all duration-300 shadow-sm hover:shadow-md flex items-center justify-center gap-2 w-full sm:w-auto">
+                    <a href="./Ajeng_Dwita_Adhyani-Admin_Finance-CV.pdf" download="Ajeng Dwita Adhyani - CV.pdf"
+                        class="bg-white text-slate-800 font-bold py-3 px-6 rounded-xl hover:bg-slate-50 border border-slate-200 transition-all duration-300 shadow-sm hover:shadow-md flex items-center justify-center gap-2 w-full sm:w-auto">
                         <i data-lucide="download" class="w-5 h-5 flex-shrink-0"></i>
                         <span data-lang="heroDownloadCVBtn">Unduh CV</span>
                     </a>
@@ -163,11 +214,16 @@
             <div class="md:w-1/2 flex justify-center reveal" style="transition-delay: 200ms;">
                 <div class="relative">
                     <!-- Blur ring -->
-                    <div class="absolute inset-0 bg-gradient-to-tr from-peach-100 to-peach-200 rounded-full blur-2xl opacity-60 scale-105 animate-pulse"></div>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-tr from-peach-100 to-peach-200 rounded-full blur-2xl opacity-60 scale-105 animate-pulse">
+                    </div>
                     <!-- Frame -->
-                    <div class="relative w-52 h-52 sm:w-64 sm:h-64 md:w-80 md:h-80 bg-white p-3 rounded-full shadow-2xl">
-                        <div class="w-full h-full bg-peach-50 rounded-full overflow-hidden flex items-center justify-center">
-                            <img src="pp.png" alt="Foto Profil Ajeng Dwita Adhyani" class="object-cover w-full h-full transition duration-500 hover:scale-105">
+                    <div
+                        class="relative w-52 h-52 sm:w-64 sm:h-64 md:w-80 md:h-80 bg-white p-3 rounded-full shadow-2xl">
+                        <div
+                            class="w-full h-full bg-peach-50 rounded-full overflow-hidden flex items-center justify-center">
+                            <img src="pp.png" alt="Foto Profil Ajeng Dwita Adhyani"
+                                class="object-cover w-full h-full transition duration-500 hover:scale-105">
                         </div>
                     </div>
                 </div>
@@ -178,34 +234,48 @@
         <section id="about" class="bg-white py-20">
             <div class="container mx-auto px-6 reveal">
                 <div class="text-center mb-12">
-                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-800" data-lang="aboutTitle">Tentang Saya</h2>
+                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-800" data-lang="aboutTitle">
+                        Tentang Saya</h2>
                     <div class="w-12 h-1 bg-peach-500 mx-auto mt-3 rounded-full"></div>
-                    <p class="text-slate-500 mt-2 text-sm sm:text-base" data-lang="aboutSubtitle">Ringkasan Profesional</p>
+                    <p class="text-slate-500 mt-2 text-sm sm:text-base" data-lang="aboutSubtitle">Ringkasan Profesional
+                    </p>
                 </div>
                 <div class="max-w-3xl mx-auto text-center text-slate-600 leading-relaxed text-sm sm:text-base mb-12">
                     <p data-lang="aboutDescription">
-                        Seorang profesional keuangan dan akuntansi yang berpengalaman dengan latar belakang yang kuat dalam industri makanan, layanan kesehatan, dan serat optik. Memiliki keahlian dalam pelaporan keuangan, penganggaran, manajemen treasury, dan pengambilan keputusan berbasis data. Terampil dalam sistem akuntansi, optimalisasi proses, dan peramalan keuangan untuk meningkatkan kinerja bisnis. Mahir dalam Microsoft Excel, manajemen basis data, dan pemecahan masalah analitis. Seorang profesional yang berorientasi pada hasil dengan pola pikir strategis, berkomitmen untuk mendorong efisiensi keuangan dan pertumbuhan bisnis.
+                        Seorang profesional keuangan dan akuntansi yang berpengalaman dengan latar belakang yang kuat
+                        dalam industri makanan, layanan kesehatan, dan serat optik. Memiliki keahlian dalam pelaporan
+                        keuangan, penganggaran, manajemen treasury, dan pengambilan keputusan berbasis data. Terampil
+                        dalam sistem akuntansi, optimalisasi proses, dan peramalan keuangan untuk meningkatkan kinerja
+                        bisnis. Mahir dalam Microsoft Excel, manajemen basis data, dan pemecahan masalah analitis.
+                        Seorang profesional yang berorientasi pada hasil dengan pola pikir strategis, berkomitmen untuk
+                        mendorong efisiensi keuangan dan pertumbuhan bisnis.
                     </p>
                 </div>
-                
+
                 <!-- Stats Grid -->
                 <div class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6 text-center mt-12">
-                    <div class="bg-peach-50/50 p-6 rounded-2xl border border-peach-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition duration-300">
-                        <div class="text-peach-500 w-10 h-10 mx-auto mb-3 flex items-center justify-center bg-peach-100 rounded-xl">
+                    <div
+                        class="bg-peach-50/50 p-6 rounded-2xl border border-peach-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition duration-300">
+                        <div
+                            class="text-peach-500 w-10 h-10 mx-auto mb-3 flex items-center justify-center bg-peach-100 rounded-xl">
                             <i data-lucide="clock" class="w-5 h-5 flex-shrink-0"></i>
                         </div>
                         <h3 class="text-2xl sm:text-3xl font-bold text-slate-800" data-lang="statExpVal">5+ Tahun</h3>
                         <p class="text-slate-500 text-xs sm:text-sm mt-1" data-lang="statExpLabel">Pengalaman Kerja</p>
                     </div>
-                    <div class="bg-peach-50/50 p-6 rounded-2xl border border-peach-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition duration-300">
-                        <div class="text-peach-500 w-10 h-10 mx-auto mb-3 flex items-center justify-center bg-peach-100 rounded-xl">
+                    <div
+                        class="bg-peach-50/50 p-6 rounded-2xl border border-peach-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition duration-300">
+                        <div
+                            class="text-peach-500 w-10 h-10 mx-auto mb-3 flex items-center justify-center bg-peach-100 rounded-xl">
                             <i data-lucide="building-2" class="w-5 h-5 flex-shrink-0"></i>
                         </div>
                         <h3 class="text-2xl sm:text-3xl font-bold text-slate-800" data-lang="statIndVal">3 Industri</h3>
                         <p class="text-slate-500 text-xs sm:text-sm mt-1" data-lang="statIndLabel">Sektor Berbeda</p>
                     </div>
-                    <div class="bg-peach-50/50 p-6 rounded-2xl border border-peach-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition duration-300">
-                        <div class="text-peach-500 w-10 h-10 mx-auto mb-3 flex items-center justify-center bg-peach-100 rounded-xl">
+                    <div
+                        class="bg-peach-50/50 p-6 rounded-2xl border border-peach-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition duration-300">
+                        <div
+                            class="text-peach-500 w-10 h-10 mx-auto mb-3 flex items-center justify-center bg-peach-100 rounded-xl">
                             <i data-lucide="graduation-cap" class="w-5 h-5 flex-shrink-0"></i>
                         </div>
                         <h3 class="text-2xl sm:text-3xl font-bold text-slate-800" data-lang="statEduVal">IPK 3.48</h3>
@@ -219,23 +289,27 @@
         <section id="experience" class="py-20">
             <div class="container mx-auto px-6 reveal">
                 <div class="text-center mb-16">
-                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-800" data-lang="experienceTitle">Pengalaman Kerja</h2>
+                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-800" data-lang="experienceTitle">
+                        Pengalaman Kerja</h2>
                     <div class="w-12 h-1 bg-peach-500 mx-auto mt-3 rounded-full"></div>
-                    <p class="text-slate-500 mt-2 text-sm sm:text-base" data-lang="experienceSubtitle">Perjalanan Karir Profesional Saya</p>
+                    <p class="text-slate-500 mt-2 text-sm sm:text-base" data-lang="experienceSubtitle">Perjalanan Karir
+                        Profesional Saya</p>
                 </div>
                 <div id="experience-container" class="relative max-w-3xl mx-auto space-y-10">
                     <!-- Experience Items will be populated by JS -->
                 </div>
             </div>
         </section>
-        
+
         <!-- Education Section -->
         <section id="education" class="bg-white py-20">
             <div class="container mx-auto px-6 reveal">
                 <div class="text-center mb-16">
-                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-800" data-lang="educationTitle">Pendidikan</h2>
+                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-800" data-lang="educationTitle">
+                        Pendidikan</h2>
                     <div class="w-12 h-1 bg-peach-500 mx-auto mt-3 rounded-full"></div>
-                    <p class="text-slate-500 mt-2 text-sm sm:text-base" data-lang="educationSubtitle">Latar Belakang Akademis</p>
+                    <p class="text-slate-500 mt-2 text-sm sm:text-base" data-lang="educationSubtitle">Latar Belakang
+                        Akademis</p>
                 </div>
                 <div id="education-container" class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
                     <!-- Education Items will be populated by JS -->
@@ -247,9 +321,11 @@
         <section id="certificates" class="py-20">
             <div class="container mx-auto px-6 reveal">
                 <div class="text-center mb-16">
-                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-800" data-lang="certificatesTitle">Sertifikat & Keterlibatan</h2>
+                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-800"
+                        data-lang="certificatesTitle">Sertifikat & Keterlibatan</h2>
                     <div class="w-12 h-1 bg-peach-500 mx-auto mt-3 rounded-full"></div>
-                    <p class="text-slate-500 mt-2 text-sm sm:text-base" data-lang="certificatesSubtitle">Pengalaman Organisasi dan Kepanitiaan</p>
+                    <p class="text-slate-500 mt-2 text-sm sm:text-base" data-lang="certificatesSubtitle">Pengalaman
+                        Organisasi dan Kepanitiaan</p>
                 </div>
                 <div id="certificates-container" class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
                     <!-- Certificates Items will be populated by JS -->
@@ -261,11 +337,14 @@
         <section id="skills" class="bg-white py-20">
             <div class="container mx-auto px-6 reveal">
                 <div class="text-center mb-16">
-                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-800" data-lang="skillsTitle">Keahlian & Kompetensi</h2>
+                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-800" data-lang="skillsTitle">
+                        Keahlian & Kompetensi</h2>
                     <div class="w-12 h-1 bg-peach-500 mx-auto mt-3 rounded-full"></div>
-                    <p class="text-slate-500 mt-2 text-sm sm:text-base" data-lang="skillsSubtitle">Kemampuan Teknis dan Soft Skills</p>
+                    <p class="text-slate-500 mt-2 text-sm sm:text-base" data-lang="skillsSubtitle">Kemampuan Teknis dan
+                        Soft Skills</p>
                 </div>
-                <div id="skills-container" class="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 text-center">
+                <div id="skills-container"
+                    class="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 text-center">
                     <!-- Skills will be populated by JS -->
                 </div>
             </div>
@@ -275,39 +354,56 @@
         <section id="contact" class="py-20">
             <div class="container mx-auto px-6 reveal">
                 <div class="text-center mb-12">
-                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-800" data-lang="contactTitle">Hubungi Saya</h2>
+                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-800" data-lang="contactTitle">
+                        Hubungi Saya</h2>
                     <div class="w-12 h-1 bg-peach-500 mx-auto mt-3 rounded-full"></div>
-                    <p class="text-slate-500 mt-2 text-sm sm:text-base" data-lang="contactSubtitle">Mari terhubung dan berdiskusi lebih lanjut.</p>
+                    <p class="text-slate-500 mt-2 text-sm sm:text-base" data-lang="contactSubtitle">Mari terhubung dan
+                        berdiskusi lebih lanjut.</p>
                 </div>
-                <div class="max-w-xl mx-auto bg-white p-6 sm:p-8 rounded-2xl border border-slate-100 shadow-md hover:shadow-lg transition-all duration-300">
+                <div
+                    class="max-w-xl mx-auto bg-white p-6 sm:p-8 rounded-2xl border border-slate-100 shadow-md hover:shadow-lg transition-all duration-300">
                     <div class="grid grid-cols-1 gap-4 sm:gap-6">
-                        <a href="mailto:ajengdwitaadhyani15@gmail.com" class="flex items-center p-4 rounded-xl bg-slate-50 hover:bg-peach-50 border border-slate-100 hover:border-peach-100 transition-all duration-300 group">
-                            <div class="bg-peach-100 text-peach-500 p-3 rounded-xl flex-shrink-0 group-hover:bg-peach-500 group-hover:text-white transition-colors duration-300">
+                        <a href="mailto:ajengdwitaadhyani15@gmail.com"
+                            class="flex items-center p-4 rounded-xl bg-slate-50 hover:bg-peach-50 border border-slate-100 hover:border-peach-100 transition-all duration-300 group">
+                            <div
+                                class="bg-peach-100 text-peach-500 p-3 rounded-xl flex-shrink-0 group-hover:bg-peach-500 group-hover:text-white transition-colors duration-300">
                                 <i data-lucide="mail" class="w-5 h-5 flex-shrink-0"></i>
                             </div>
                             <div class="ml-4 overflow-hidden">
                                 <p class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Email</p>
-                                <p class="text-sm sm:text-base text-slate-600 group-hover:text-peach-600 transition-colors truncate break-all">ajengdwitaadhyani15@gmail.com</p>
+                                <p
+                                    class="text-sm sm:text-base text-slate-600 group-hover:text-peach-600 transition-colors truncate break-all">
+                                    ajengdwitaadhyani15@gmail.com</p>
                             </div>
                         </a>
-                        <a href="http://wa.me/+6285893999739" target="_blank" class="flex items-center p-4 rounded-xl bg-slate-50 hover:bg-peach-50 border border-slate-100 hover:border-peach-100 transition-all duration-300 group">
-                            <div class="bg-peach-100 text-peach-500 p-3 rounded-xl flex-shrink-0 group-hover:bg-peach-500 group-hover:text-white transition-colors duration-300">
+                        <a href="http://wa.me/+6285893999739" target="_blank"
+                            class="flex items-center p-4 rounded-xl bg-slate-50 hover:bg-peach-50 border border-slate-100 hover:border-peach-100 transition-all duration-300 group">
+                            <div
+                                class="bg-peach-100 text-peach-500 p-3 rounded-xl flex-shrink-0 group-hover:bg-peach-500 group-hover:text-white transition-colors duration-300">
                                 <i data-lucide="phone" class="w-5 h-5 flex-shrink-0"></i>
                             </div>
                             <div class="ml-4 overflow-hidden">
                                 <p class="text-xs text-slate-400 font-semibold uppercase tracking-wider">WhatsApp</p>
-                                <p class="text-sm sm:text-base text-slate-600 group-hover:text-peach-600 transition-colors truncate break-all">+62 858-9399-9739</p>
+                                <p
+                                    class="text-sm sm:text-base text-slate-600 group-hover:text-peach-600 transition-colors truncate break-all">
+                                    +62 858-9399-9739</p>
                             </div>
                         </a>
-                        <a href="https://www.linkedin.com/in/ajeng-dwita-adhyani-581730253/" target="_blank" class="flex items-center p-4 rounded-xl bg-slate-50 hover:bg-peach-50 border border-slate-100 hover:border-peach-100 transition-all duration-300 group">
-                            <div class="bg-peach-100 text-peach-500 p-3 rounded-xl flex-shrink-0 group-hover:bg-peach-500 group-hover:text-white transition-colors duration-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 flex-shrink-0">
-                                    <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.15V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.5c1.8 0 3.4 1.14 3.4 4.08z"/>
+                        <a href="https://www.linkedin.com/in/ajeng-dwita-adhyani-581730253/" target="_blank"
+                            class="flex items-center p-4 rounded-xl bg-slate-50 hover:bg-peach-50 border border-slate-100 hover:border-peach-100 transition-all duration-300 group">
+                            <div
+                                class="bg-peach-100 text-peach-500 p-3 rounded-xl flex-shrink-0 group-hover:bg-peach-500 group-hover:text-white transition-colors duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                    class="w-5 h-5 flex-shrink-0">
+                                    <path
+                                        d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.15V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.5c1.8 0 3.4 1.14 3.4 4.08z" />
                                 </svg>
                             </div>
                             <div class="ml-4 overflow-hidden">
                                 <p class="text-xs text-slate-400 font-semibold uppercase tracking-wider">LinkedIn</p>
-                                <p class="text-sm sm:text-base text-slate-600 group-hover:text-peach-600 transition-colors truncate break-all">linkedin.com/in/ajeng-dwita-adhyani</p>
+                                <p
+                                    class="text-sm sm:text-base text-slate-600 group-hover:text-peach-600 transition-colors truncate break-all">
+                                    linkedin.com/in/ajeng-dwita-adhyani</p>
                             </div>
                         </a>
                         <div class="flex items-center p-4 rounded-xl bg-slate-50 border border-slate-100">
@@ -374,8 +470,8 @@
                 educationTitle: "Pendidikan",
                 educationSubtitle: "Latar Belakang Akademis",
                 educationItems: [
-                    { degree: "Sarjana Akuntansi", school: "Universitas Al-Azhar Indonesia", period: "2018 - 2022", detail: "IPK: 3.48", url: "https://uai.ac.id/", activities: "Aktivitas: Wakil Kepala Departemen Sumber Daya Manusia di UKKM LDK Karisma UAI.", links: [ { name: 'Surat Keterangan Lulus', url: 'https://drive.google.com/file/d/1_lOAyTTYtGRu_wf9SkxxsY6tLQ4nxDrJ/view?usp=drive_link', icon: 'file-text' } ] },
-                    { degree: "Akuntansi", school: "SMK Negeri 15 Jakarta", period: "2014 - 2017", detail: "", url: "https://www.smkn15jakarta.sch.id/", activities: "", links: [ { name: 'Daftar Nilai', url: 'https://drive.google.com/drive/folders/1GVxHkDJQvOPW8JNLmmSD_18sbkpjyZgr', icon: 'file-text' }, { name: 'Kepesertaan LKS', url: 'https://drive.google.com/drive/folders/1zKTV_nsiUhzZiUbreViYYZXGvvX_bvgC', icon: 'award' }, { name: 'Sertifikat Kompetensi', url: 'https://drive.google.com/file/d/1EnoVE0KGZcxL_SwPZUfllfSqwuAVcpJH/view?usp=drive_link', icon: 'star' }, { name: 'Praktik Industri (Auto 2000)', url: 'https://drive.google.com/file/d/1uCfjRP4CppWtzoKDrl9kZZ2CbtNrYMAK/view?usp=drive_link', icon: 'wrench' }, { name: 'Praktik Industri (Bank DKI)', url: 'https://drive.google.com/file/d/1jw5Z9UTUKwY6IflG8MGdE7gHUZvT_rIp/view?usp=drive_link', icon: 'landmark' }, { name: 'Sertifikat Zahir', url: 'https://drive.google.com/file/d/1yNTqe3gaeiBj_l-JfH-QivuEM21VemYm/view?usp=drive_link', icon: 'file-badge' }, { name: 'Sertifikat BNSP', url: 'https://drive.google.com/file/d/1HE-eIKHuXXsBynX8KJYCoN0KEyLjACke/view?usp=drive_link', icon: 'file-badge' } ] }
+                    { degree: "Sarjana Akuntansi", school: "Universitas Al-Azhar Indonesia", period: "2018 - 2022", detail: "IPK: 3.48", url: "https://uai.ac.id/", activities: "Aktivitas: Wakil Kepala Departemen Sumber Daya Manusia di UKKM LDK Karisma UAI.", links: [{ name: 'Surat Keterangan Lulus', url: 'https://drive.google.com/file/d/1_lOAyTTYtGRu_wf9SkxxsY6tLQ4nxDrJ/view?usp=drive_link', icon: 'file-text' }] },
+                    { degree: "Akuntansi", school: "SMK Negeri 15 Jakarta", period: "2014 - 2017", detail: "", url: "https://www.smkn15jakarta.sch.id/", activities: "", links: [{ name: 'Daftar Nilai', url: 'https://drive.google.com/drive/folders/1GVxHkDJQvOPW8JNLmmSD_18sbkpjyZgr', icon: 'file-text' }, { name: 'Kepesertaan LKS', url: 'https://drive.google.com/drive/folders/1zKTV_nsiUhzZiUbreViYYZXGvvX_bvgC', icon: 'award' }, { name: 'Sertifikat Kompetensi', url: 'https://drive.google.com/file/d/1EnoVE0KGZcxL_SwPZUfllfSqwuAVcpJH/view?usp=drive_link', icon: 'star' }, { name: 'Praktik Industri (Auto 2000)', url: 'https://drive.google.com/file/d/1uCfjRP4CppWtzoKDrl9kZZ2CbtNrYMAK/view?usp=drive_link', icon: 'wrench' }, { name: 'Praktik Industri (Bank DKI)', url: 'https://drive.google.com/file/d/1jw5Z9UTUKwY6IflG8MGdE7gHUZvT_rIp/view?usp=drive_link', icon: 'landmark' }, { name: 'Sertifikat Zahir', url: 'https://drive.google.com/file/d/1yNTqe3gaeiBj_l-JfH-QivuEM21VemYm/view?usp=drive_link', icon: 'file-badge' }, { name: 'Sertifikat BNSP', url: 'https://drive.google.com/file/d/1HE-eIKHuXXsBynX8KJYCoN0KEyLjACke/view?usp=drive_link', icon: 'file-badge' }] }
                 ],
                 certificatesTitle: "Sertifikat & Keterlibatan",
                 certificatesSubtitle: "Pengalaman Organisasi dan Kepanitiaan",
@@ -429,8 +525,8 @@
                 educationTitle: "Education",
                 educationSubtitle: "Academic Background",
                 educationItems: [
-                    { degree: "Bachelor of Accounting", school: "Universitas Al-Azhar Indonesia", period: "2018 - 2022", detail: "GPA: 3.48", url: "https://uai.ac.id/en/home/", activities: "Activities: Served as Vice Head of the Human Resources Department at UKKM LDK Karisma UAI.", links: [ { name: 'Certificate of Graduation', url: 'https://drive.google.com/file/d/1_lOAyTTYtGRu_wf9SkxxsY6tLQ4nxDrJ/view?usp=drive_link', icon: 'file-text' } ] },
-                    { degree: "Vocational High School in Accounting", school: "SMK Negeri 15 Jakarta", period: "2014 - 2017", detail: "", url: "https://www.smkn15jakarta.sch.id/", activities: "", links: [ { name: 'Transcript of Grades', url: 'https://drive.google.com/drive/folders/1GVxHkDJQvOPW8JNLmmSD_18sbkpjyZgr', icon: 'file-text' }, { name: 'Competition Certificate', url: 'https://drive.google.com/drive/folders/1zKTV_nsiUhzZiUbreViYYZXGvvX_bvgC', icon: 'award' }, { name: 'Competency Certificate', url: 'https://drive.google.com/file/d/1EnoVE0KGZcxL_SwPZUfllfSqwuAVcpJH/view?usp=drive_link', icon: 'star' }, { name: 'Internship (Auto 2000)', url: 'https://drive.google.com/file/d/1uCfjRP4CppWtzoKDrl9kZZ2CbtNrYMAK/view?usp=drive_link', icon: 'wrench' }, { name: 'Internship (Bank DKI)', url: 'https://drive.google.com/file/d/1jw5Z9UTUKwY6IflG8MGdE7gHUZvT_rIp/view?usp=drive_link', icon: 'landmark' }, { name: 'Zahir Certificate', url: 'https://drive.google.com/file/d/1yNTqe3gaeiBj_l-JfH-QivuEM21VemYm/view?usp=drive_link', icon: 'file-badge' }, { name: 'BNSP Certificate', url: 'https://drive.google.com/file/d/1HE-eIKHuXXsBynX8KJYCoN0KEyLjACke/view?usp=drive_link', icon: 'file-badge' } ] }
+                    { degree: "Bachelor of Accounting", school: "Universitas Al-Azhar Indonesia", period: "2018 - 2022", detail: "GPA: 3.48", url: "https://uai.ac.id/en/home/", activities: "Activities: Served as Vice Head of the Human Resources Department at UKKM LDK Karisma UAI.", links: [{ name: 'Certificate of Graduation', url: 'https://drive.google.com/file/d/1_lOAyTTYtGRu_wf9SkxxsY6tLQ4nxDrJ/view?usp=drive_link', icon: 'file-text' }] },
+                    { degree: "Vocational High School in Accounting", school: "SMK Negeri 15 Jakarta", period: "2014 - 2017", detail: "", url: "https://www.smkn15jakarta.sch.id/", activities: "", links: [{ name: 'Transcript of Grades', url: 'https://drive.google.com/drive/folders/1GVxHkDJQvOPW8JNLmmSD_18sbkpjyZgr', icon: 'file-text' }, { name: 'Competition Certificate', url: 'https://drive.google.com/drive/folders/1zKTV_nsiUhzZiUbreViYYZXGvvX_bvgC', icon: 'award' }, { name: 'Competency Certificate', url: 'https://drive.google.com/file/d/1EnoVE0KGZcxL_SwPZUfllfSqwuAVcpJH/view?usp=drive_link', icon: 'star' }, { name: 'Internship (Auto 2000)', url: 'https://drive.google.com/file/d/1uCfjRP4CppWtzoKDrl9kZZ2CbtNrYMAK/view?usp=drive_link', icon: 'wrench' }, { name: 'Internship (Bank DKI)', url: 'https://drive.google.com/file/d/1jw5Z9UTUKwY6IflG8MGdE7gHUZvT_rIp/view?usp=drive_link', icon: 'landmark' }, { name: 'Zahir Certificate', url: 'https://drive.google.com/file/d/1yNTqe3gaeiBj_l-JfH-QivuEM21VemYm/view?usp=drive_link', icon: 'file-badge' }, { name: 'BNSP Certificate', url: 'https://drive.google.com/file/d/1HE-eIKHuXXsBynX8KJYCoN0KEyLjACke/view?usp=drive_link', icon: 'file-badge' }] }
                 ],
                 certificatesTitle: "Certificates & Involvements",
                 certificatesSubtitle: "Organizational and Committee Experience",
@@ -452,7 +548,7 @@
         };
 
         let currentLang = 'id';
-        
+
         const revealObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -462,9 +558,9 @@
         }, { threshold: 0.1 });
 
         const setupObservers = () => {
-             document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+            document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
         };
-        
+
         const switchLanguage = (lang) => {
             currentLang = lang;
             document.documentElement.lang = lang;
@@ -472,7 +568,7 @@
             document.querySelectorAll('[data-lang]').forEach(el => {
                 const key = el.getAttribute('data-lang');
                 const mainKey = key.replace('Mobile', '');
-                
+
                 if (translations[lang][mainKey]) {
                     el.innerHTML = translations[lang][mainKey];
                 } else if (translations[lang][key]) {
@@ -494,11 +590,11 @@
                     btn.classList.remove('text-slate-600', 'hover:text-peach-500');
                 }
             });
-            
+
             lucide.createIcons();
             setupObservers();
         };
-        
+
         const renderExperience = (lang) => {
             const container = document.getElementById('experience-container');
             // Clean container and insert vertical timeline line
@@ -542,7 +638,7 @@
                         <span>${link.name}</span>
                     </a>
                 `).join('');
-                
+
                 container.innerHTML += `
                 <div class="bg-peach-50/50 p-6 sm:p-8 rounded-2xl border border-peach-100/40 transition-all duration-300 hover:shadow-md hover:-translate-y-1 reveal flex flex-col justify-between">
                     <div>
@@ -561,7 +657,7 @@
                 </div>`;
             });
         };
-        
+
         const renderCertificates = (lang) => {
             const container = document.getElementById('certificates-container');
             container.innerHTML = '';
@@ -607,11 +703,11 @@
         // Mobile Menu Toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-        
+
         mobileMenuButton.addEventListener('click', () => {
             const isHidden = mobileMenu.classList.toggle('hidden');
-            mobileMenuButton.innerHTML = isHidden 
-                ? '<i data-lucide="menu" class="w-6 h-6"></i>' 
+            mobileMenuButton.innerHTML = isHidden
+                ? '<i data-lucide="menu" class="w-6 h-6"></i>'
                 : '<i data-lucide="x" class="w-6 h-6"></i>';
             lucide.createIcons();
         });
@@ -619,9 +715,18 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const targetEl = document.querySelector(this.getAttribute('href'));
-                if (targetEl) {
-                    targetEl.scrollIntoView({ behavior: 'smooth' });
+                const href = this.getAttribute('href');
+                if (href === "#") {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    try {
+                        const targetEl = document.querySelector(href);
+                        if (targetEl) {
+                            targetEl.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    } catch (err) {
+                        console.error(err);
+                    }
                 }
                 if (!mobileMenu.classList.contains('hidden')) {
                     mobileMenu.classList.add('hidden');
@@ -642,13 +747,41 @@
             }
         });
 
+        // Scrollspy (Highlight active nav link)
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav a');
+
+        const scrollspy = () => {
+            let current = '';
+            const headerHeight = 100; // Offset for the fixed header
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - headerHeight;
+                const sectionHeight = section.offsetHeight;
+                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-peach-500', 'font-semibold');
+                link.classList.add('text-slate-600');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.remove('text-slate-600');
+                    link.classList.add('text-peach-500', 'font-semibold');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', scrollspy);
+
         // Initial Render
         document.addEventListener('DOMContentLoaded', () => {
             switchLanguage('id');
+            scrollspy();
         });
     </script>
 
 </body>
+
 </html>
-
-
