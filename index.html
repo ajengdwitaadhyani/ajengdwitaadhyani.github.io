@@ -4,7 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ajeng Dwita Adhyani | Portofolio Keuangan</title>
+    <link rel="icon" type="image/png" href="favicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        peach: {
+                            50: '#FFF7F5',
+                            100: '#FFEAE5',
+                            200: '#FFD5CC',
+                            300: '#FFAFA0',
+                            500: '#FF8A65',
+                            600: '#FF7043',
+                            700: '#E65100',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -16,56 +40,28 @@
         .font-display {
             font-family: 'Playfair Display', serif;
         }
-        /* Custom Peach Colors */
-        .bg-peach-50 { background-color: #FFF7F5; }
-        .bg-peach-100 { background-color: #FFEAE5; }
-        .bg-peach-500 { background-color: #FF8A65; }
-        .text-peach-500 { color: #FF8A65; }
-        .border-peach-500 { border-color: #FF8A65; }
-        .hover\:bg-peach-600:hover { background-color: #FF7043; }
-        .ring-peach-500:focus { --tw-ring-color: #FF8A65; }
-
-        /* Animation Styles */
+        /* Reveal animation */
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            transform: translateY(20px);
+            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .reveal.visible {
             opacity: 1;
             transform: translateY(0);
         }
-        .lang-switch-btn.active {
-            color: #FF8A65;
-            font-weight: 700;
-        }
-        .link-chip {
-            display: inline-flex;
-            align-items: center;
-            background-color: #FFEAE5; /* bg-peach-100 */
-            color: #FF8A65; /* text-peach-500 */
-            padding: 4px 10px;
-            border-radius: 9999px;
-            font-size: 0.75rem; /* text-xs */
-            font-weight: 500;
-            transition: background-color 0.3s;
-        }
-        .link-chip:hover {
-            background-color: #FFDAB9; /* Lighter peach for hover */
-        }
-        .link-chip i {
-            margin-right: 6px;
-        }
     </style>
 </head>
-<body class="bg-peach-50 text-slate-800">
+<body class="bg-peach-50 text-slate-800 antialiased">
 
     <!-- Header / Navbar -->
-    <header class="bg-peach-50/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-sm">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="font-display text-2xl font-bold text-slate-800">Ajeng D. Adhyani</a>
-            <div class="flex items-center space-x-8">
-                <nav class="hidden md:flex space-x-8">
+    <header class="bg-peach-50/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-sm border-b border-peach-100/30">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center relative">
+            <a href="#" class="font-display text-xl sm:text-2xl font-bold text-slate-800 hover:text-peach-500 transition-colors duration-300">Ajeng D. Adhyani</a>
+            
+            <div class="flex items-center space-x-4 sm:space-x-6 md:space-x-8">
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex space-x-6 lg:space-x-8 font-medium">
                     <a href="#about" class="text-slate-600 hover:text-peach-500 transition duration-300" data-lang="navAbout">Tentang Saya</a>
                     <a href="#experience" class="text-slate-600 hover:text-peach-500 transition duration-300" data-lang="navExperience">Pengalaman</a>
                     <a href="#education" class="text-slate-600 hover:text-peach-500 transition duration-300" data-lang="navEducation">Pendidikan</a>
@@ -73,28 +69,69 @@
                     <a href="#skills" class="text-slate-600 hover:text-peach-500 transition duration-300" data-lang="navSkills">Keahlian</a>
                     <a href="#contact" class="text-slate-600 hover:text-peach-500 transition duration-300" data-lang="navContact">Kontak</a>
                 </nav>
-                <div class="hidden md:flex items-center space-x-2 text-sm">
-                    <button id="lang-id" class="lang-switch-btn active transition-colors duration-300" data-lang="langBtnShortId">ID</button>
-                    <span class="text-slate-300">|</span>
-                    <button id="lang-en" class="lang-switch-btn transition-colors duration-300" data-lang="langBtnShortEn">EN</button>
+                
+                <!-- Language Selector Desktop -->
+                <div class="hidden md:flex items-center bg-slate-200/50 p-1 rounded-full border border-slate-300/30">
+                    <button id="lang-id" class="lang-switch-btn px-3 py-1 rounded-full text-xs font-semibold transition-all duration-300 active" data-lang="langBtnShortId">ID</button>
+                    <button id="lang-en" class="lang-switch-btn px-3 py-1 rounded-full text-xs font-semibold transition-all duration-300" data-lang="langBtnShortEn">EN</button>
                 </div>
+
+                <!-- LinkedIn Desktop Link -->
+                <a href="https://www.linkedin.com/in/ajeng-dwita-adhyani-581730253/" target="_blank" class="hidden md:flex items-center justify-center p-2 rounded-xl bg-slate-100 hover:bg-peach-100 text-slate-600 hover:text-peach-500 border border-slate-200/40 shadow-sm transition-all duration-300 hover:scale-105" title="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4.5 h-4.5 text-[#0a66c2]">
+                        <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.15V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.5c1.8 0 3.4 1.14 3.4 4.08z"/>
+                    </svg>
+                </a>
             </div>
-            <button id="mobile-menu-button" class="md:hidden">
-                <i data-lucide="menu"></i>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg hover:bg-peach-100 text-slate-700 transition duration-300 flex items-center justify-center focus:outline-none">
+                <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
-        </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
-            <a href="#about" class="block py-2 text-slate-600 hover:text-peach-500" data-lang="navAboutMobile">Tentang Saya</a>
-            <a href="#experience" class="block py-2 text-slate-600 hover:text-peach-500" data-lang="navExperienceMobile">Pengalaman</a>
-            <a href="#education" class="block py-2 text-slate-600 hover:text-peach-500" data-lang="navEducationMobile">Pendidikan</a>
-            <a href="#certificates" class="block py-2 text-slate-600 hover:text-peach-500" data-lang="navCertificatesMobile">Sertifikat</a>
-            <a href="#skills" class="block py-2 text-slate-600 hover:text-peach-500" data-lang="navSkillsMobile">Keahlian</a>
-            <a href="#contact" class="block py-2 text-slate-600 hover:text-peach-500" data-lang="navContactMobile">Kontak</a>
-            <div class="flex items-center space-x-2 text-sm mt-4">
-                <button id="lang-id-mobile" class="lang-switch-btn active transition-colors duration-300" data-lang="langBtnLongId">Indonesia</button>
-                <span class="text-slate-300">|</span>
-                <button id="lang-en-mobile" class="lang-switch-btn transition-colors duration-300" data-lang="langBtnLongEn">English</button>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-lg border-b border-peach-100 shadow-lg px-6 py-5 flex flex-col gap-1 z-40 transition-all duration-300 ease-in-out md:hidden">
+                <a href="#about" class="flex items-center space-x-3 py-2.5 px-3 rounded-xl hover:bg-peach-50 text-slate-600 hover:text-peach-500 transition duration-300">
+                    <i data-lucide="user" class="w-4 h-4 flex-shrink-0"></i>
+                    <span data-lang="navAboutMobile">Tentang Saya</span>
+                </a>
+                <a href="#experience" class="flex items-center space-x-3 py-2.5 px-3 rounded-xl hover:bg-peach-50 text-slate-600 hover:text-peach-500 transition duration-300">
+                    <i data-lucide="briefcase" class="w-4 h-4 flex-shrink-0"></i>
+                    <span data-lang="navExperienceMobile">Pengalaman</span>
+                </a>
+                <a href="#education" class="flex items-center space-x-3 py-2.5 px-3 rounded-xl hover:bg-peach-50 text-slate-600 hover:text-peach-500 transition duration-300">
+                    <i data-lucide="graduation-cap" class="w-4 h-4 flex-shrink-0"></i>
+                    <span data-lang="navEducationMobile">Pendidikan</span>
+                </a>
+                <a href="#certificates" class="flex items-center space-x-3 py-2.5 px-3 rounded-xl hover:bg-peach-50 text-slate-600 hover:text-peach-500 transition duration-300">
+                    <i data-lucide="award" class="w-4 h-4 flex-shrink-0"></i>
+                    <span data-lang="navCertificatesMobile">Sertifikat</span>
+                </a>
+                <a href="#skills" class="flex items-center space-x-3 py-2.5 px-3 rounded-xl hover:bg-peach-50 text-slate-600 hover:text-peach-500 transition duration-300">
+                    <i data-lucide="settings" class="w-4 h-4 flex-shrink-0"></i>
+                    <span data-lang="navSkillsMobile">Keahlian</span>
+                </a>
+                <a href="#contact" class="flex items-center space-x-3 py-2.5 px-3 rounded-xl hover:bg-peach-50 text-slate-600 hover:text-peach-500 transition duration-300">
+                    <i data-lucide="mail" class="w-4 h-4 flex-shrink-0"></i>
+                    <span data-lang="navContactMobile">Kontak</span>
+                </a>
+                <div class="h-px bg-slate-100 my-2"></div>
+                <div class="flex items-center justify-between pt-2 px-3">
+                    <span class="text-xs text-slate-400 font-medium flex items-center gap-1.5"><i data-lucide="globe" class="w-3.5 h-3.5 flex-shrink-0"></i> Language / Bahasa</span>
+                    <div class="flex items-center bg-slate-100 p-0.5 rounded-full border border-slate-200">
+                        <button id="lang-id-mobile" class="lang-switch-btn px-3 py-1 rounded-full text-xs font-semibold transition-all duration-300" data-lang="langBtnLongId">Indonesia</button>
+                        <button id="lang-en-mobile" class="lang-switch-btn px-3 py-1 rounded-full text-xs font-semibold transition-all duration-300" data-lang="langBtnLongEn">English</button>
+                    </div>
+                </div>
+                <!-- Mobile LinkedIn link bar -->
+                <div class="flex items-center justify-center gap-4 mt-3 pt-3 border-t border-slate-100">
+                    <a href="https://www.linkedin.com/in/ajeng-dwita-adhyani-581730253/" target="_blank" class="flex items-center justify-center p-2.5 rounded-xl bg-slate-50 hover:bg-peach-50 text-slate-600 hover:text-peach-500 border border-slate-200/30 transition-all duration-300 w-full text-xs font-semibold gap-2 shadow-sm" title="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4.5 h-4.5 text-[#0a66c2]">
+                            <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.15V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.5c1.8 0 3.4 1.14 3.4 4.08z"/>
+                        </svg>
+                        LinkedIn Profile
+                    </a>
+                </div>
             </div>
         </div>
     </header>
@@ -102,90 +139,131 @@
     <main class="pt-20">
 
         <!-- Hero Section -->
-        <section id="home" class="container mx-auto px-6 py-24 flex flex-col md:flex-row items-center overflow-hidden">
-            <div class="md:w-1/2 text-center md:text-left mb-10 md:mb-0 reveal">
-                <h1 class="font-display text-4xl md:text-6xl font-bold leading-tight mb-4" data-lang="heroTitle">Ajeng Dwita Adhyani</h1>
-                <h2 class="text-xl md:text-2xl text-peach-500 font-semibold mb-6" data-lang="heroSubtitle">Akuntan | Analis Keuangan | Membantu Bisnis Membuat Keputusan Berbasis Data</h2>
-                <p class="text-slate-600 max-w-lg mx-auto md:mx-0 mb-8" data-lang="heroDescription">
+        <section id="home" class="container mx-auto px-6 py-20 md:py-32 flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/2 text-center md:text-left reveal">
+                <h1 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 text-slate-800" data-lang="heroTitle">Ajeng Dwita Adhyani</h1>
+                <h2 class="text-lg sm:text-xl md:text-2xl text-peach-500 font-semibold mb-6 leading-relaxed" data-lang="heroSubtitle">Akuntan | Analis Keuangan | Membantu Bisnis Membuat Keputusan Berbasis Data</h2>
+                <p class="text-slate-600 text-sm sm:text-base max-w-lg mx-auto md:mx-0 mb-8 leading-relaxed" data-lang="heroDescription">
                     Profesional keuangan dan akuntansi berpengalaman dengan rekam jejak yang kuat di berbagai industri. Berkomitmen untuk mendorong efisiensi keuangan dan pertumbuhan bisnis.
                 </p>
-                <div class="flex flex-wrap justify-center md:justify-start gap-4">
-                    <a href="#contact" class="bg-peach-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-peach-600 transition duration-300 shadow-lg" data-lang="heroContactBtn">Hubungi Saya</a>
-                    <a href="https://www.linkedin.com/in/ajeng-dwita-adhyani-581730253/" target="_blank" class="bg-white text-slate-800 font-bold py-3 px-6 rounded-lg hover:bg-slate-100 transition duration-300 shadow-lg flex items-center">
-                        <i data-lucide="linkedin" class="w-5 h-5 mr-2"></i> LinkedIn
+                <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
+                    <a href="#contact" class="bg-peach-500 text-white font-bold py-3 px-6 rounded-xl hover:bg-peach-600 transition-all duration-300 shadow-md hover:shadow-lg text-center flex justify-center items-center gap-2 w-full sm:w-auto" data-lang="heroContactBtn">Hubungi Saya</a>
+                    <a href="https://www.linkedin.com/in/ajeng-dwita-adhyani-581730253/" target="_blank" class="bg-white text-slate-800 font-bold py-3 px-6 rounded-xl hover:bg-slate-50 border border-slate-200 transition-all duration-300 shadow-sm hover:shadow-md flex items-center justify-center gap-2 w-full sm:w-auto hover:scale-[1.02]">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 flex-shrink-0 text-[#0a66c2]">
+                            <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.15V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.5c1.8 0 3.4 1.14 3.4 4.08z"/>
+                        </svg>
+                        LinkedIn
                     </a>
-                    <a href="./Ajeng_Dwita_Adhyani-Admin_Finance-CV.pdf" download="Ajeng Dwita Adhyani - CV.pdf" class="bg-white text-slate-800 font-bold py-3 px-6 rounded-lg hover:bg-slate-100 transition duration-300 shadow-lg flex items-center" data-lang="heroDownloadCVBtn">
-                        <!-- Content will be populated by JS -->
+                    <a href="./Ajeng_Dwita_Adhyani-Admin_Finance-CV.pdf" download="Ajeng Dwita Adhyani - CV.pdf" class="bg-white text-slate-800 font-bold py-3 px-6 rounded-xl hover:bg-slate-50 border border-slate-200 transition-all duration-300 shadow-sm hover:shadow-md flex items-center justify-center gap-2 w-full sm:w-auto">
+                        <i data-lucide="download" class="w-5 h-5 flex-shrink-0"></i>
+                        <span data-lang="heroDownloadCVBtn">Unduh CV</span>
                     </a>
                 </div>
             </div>
             <div class="md:w-1/2 flex justify-center reveal" style="transition-delay: 200ms;">
-                <div class="w-64 h-64 md:w-80 md:h-80 bg-peach-100 rounded-full flex items-center justify-center shadow-2xl overflow-hidden">
-                    <img src="pp.png" alt="Foto Profil Ajeng Dwita Adhyani" class="object-cover w-full h-full">
+                <div class="relative">
+                    <!-- Blur ring -->
+                    <div class="absolute inset-0 bg-gradient-to-tr from-peach-100 to-peach-200 rounded-full blur-2xl opacity-60 scale-105 animate-pulse"></div>
+                    <!-- Frame -->
+                    <div class="relative w-52 h-52 sm:w-64 sm:h-64 md:w-80 md:h-80 bg-white p-3 rounded-full shadow-2xl">
+                        <div class="w-full h-full bg-peach-50 rounded-full overflow-hidden flex items-center justify-center">
+                            <img src="pp.png" alt="Foto Profil Ajeng Dwita Adhyani" class="object-cover w-full h-full transition duration-500 hover:scale-105">
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- About Me Section -->
-        <section id="about" class="bg-white py-20 overflow-hidden">
+        <section id="about" class="bg-white py-20">
             <div class="container mx-auto px-6 reveal">
                 <div class="text-center mb-12">
-                    <h2 class="font-display text-4xl font-bold" data-lang="aboutTitle">Tentang Saya</h2>
-                    <p class="text-slate-500 mt-2" data-lang="aboutSubtitle">Ringkasan Profesional</p>
+                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-800" data-lang="aboutTitle">Tentang Saya</h2>
+                    <div class="w-12 h-1 bg-peach-500 mx-auto mt-3 rounded-full"></div>
+                    <p class="text-slate-500 mt-2 text-sm sm:text-base" data-lang="aboutSubtitle">Ringkasan Profesional</p>
                 </div>
-                <div class="max-w-3xl mx-auto text-center text-slate-600 leading-relaxed">
+                <div class="max-w-3xl mx-auto text-center text-slate-600 leading-relaxed text-sm sm:text-base mb-12">
                     <p data-lang="aboutDescription">
                         Seorang profesional keuangan dan akuntansi yang berpengalaman dengan latar belakang yang kuat dalam industri makanan, layanan kesehatan, dan serat optik. Memiliki keahlian dalam pelaporan keuangan, penganggaran, manajemen treasury, dan pengambilan keputusan berbasis data. Terampil dalam sistem akuntansi, optimalisasi proses, dan peramalan keuangan untuk meningkatkan kinerja bisnis. Mahir dalam Microsoft Excel, manajemen basis data, dan pemecahan masalah analitis. Seorang profesional yang berorientasi pada hasil dengan pola pikir strategis, berkomitmen untuk mendorong efisiensi keuangan dan pertumbuhan bisnis.
                     </p>
+                </div>
+                
+                <!-- Stats Grid -->
+                <div class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6 text-center mt-12">
+                    <div class="bg-peach-50/50 p-6 rounded-2xl border border-peach-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition duration-300">
+                        <div class="text-peach-500 w-10 h-10 mx-auto mb-3 flex items-center justify-center bg-peach-100 rounded-xl">
+                            <i data-lucide="clock" class="w-5 h-5 flex-shrink-0"></i>
+                        </div>
+                        <h3 class="text-2xl sm:text-3xl font-bold text-slate-800" data-lang="statExpVal">5+ Tahun</h3>
+                        <p class="text-slate-500 text-xs sm:text-sm mt-1" data-lang="statExpLabel">Pengalaman Kerja</p>
+                    </div>
+                    <div class="bg-peach-50/50 p-6 rounded-2xl border border-peach-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition duration-300">
+                        <div class="text-peach-500 w-10 h-10 mx-auto mb-3 flex items-center justify-center bg-peach-100 rounded-xl">
+                            <i data-lucide="building-2" class="w-5 h-5 flex-shrink-0"></i>
+                        </div>
+                        <h3 class="text-2xl sm:text-3xl font-bold text-slate-800" data-lang="statIndVal">3 Industri</h3>
+                        <p class="text-slate-500 text-xs sm:text-sm mt-1" data-lang="statIndLabel">Sektor Berbeda</p>
+                    </div>
+                    <div class="bg-peach-50/50 p-6 rounded-2xl border border-peach-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition duration-300">
+                        <div class="text-peach-500 w-10 h-10 mx-auto mb-3 flex items-center justify-center bg-peach-100 rounded-xl">
+                            <i data-lucide="graduation-cap" class="w-5 h-5 flex-shrink-0"></i>
+                        </div>
+                        <h3 class="text-2xl sm:text-3xl font-bold text-slate-800" data-lang="statEduVal">IPK 3.48</h3>
+                        <p class="text-slate-500 text-xs sm:text-sm mt-1" data-lang="statEduLabel">Sarjana Akuntansi</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Experience Section -->
-        <section id="experience" class="py-20 overflow-hidden">
+        <section id="experience" class="py-20">
             <div class="container mx-auto px-6 reveal">
-                <div class="text-center mb-12">
-                    <h2 class="font-display text-4xl font-bold" data-lang="experienceTitle">Pengalaman Kerja</h2>
-                    <p class="text-slate-500 mt-2" data-lang="experienceSubtitle">Perjalanan Karir Profesional Saya</p>
+                <div class="text-center mb-16">
+                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-800" data-lang="experienceTitle">Pengalaman Kerja</h2>
+                    <div class="w-12 h-1 bg-peach-500 mx-auto mt-3 rounded-full"></div>
+                    <p class="text-slate-500 mt-2 text-sm sm:text-base" data-lang="experienceSubtitle">Perjalanan Karir Profesional Saya</p>
                 </div>
-                <div id="experience-container" class="relative max-w-4xl mx-auto border-l-2 border-peach-100 pl-8 space-y-12">
+                <div id="experience-container" class="relative max-w-3xl mx-auto space-y-10">
                     <!-- Experience Items will be populated by JS -->
                 </div>
             </div>
         </section>
         
         <!-- Education Section -->
-        <section id="education" class="bg-white py-20 overflow-hidden">
+        <section id="education" class="bg-white py-20">
             <div class="container mx-auto px-6 reveal">
-                <div class="text-center mb-12">
-                    <h2 class="font-display text-4xl font-bold" data-lang="educationTitle">Pendidikan</h2>
-                    <p class="text-slate-500 mt-2" data-lang="educationSubtitle">Latar Belakang Akademis</p>
+                <div class="text-center mb-16">
+                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-800" data-lang="educationTitle">Pendidikan</h2>
+                    <div class="w-12 h-1 bg-peach-500 mx-auto mt-3 rounded-full"></div>
+                    <p class="text-slate-500 mt-2 text-sm sm:text-base" data-lang="educationSubtitle">Latar Belakang Akademis</p>
                 </div>
-                <div id="education-container" class="max-w-4xl mx-auto grid md:grid-cols-1 gap-8">
+                <div id="education-container" class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
                     <!-- Education Items will be populated by JS -->
                 </div>
             </div>
         </section>
 
         <!-- Certificates Section -->
-        <section id="certificates" class="py-20 overflow-hidden">
+        <section id="certificates" class="py-20">
             <div class="container mx-auto px-6 reveal">
-                <div class="text-center mb-12">
-                    <h2 class="font-display text-4xl font-bold" data-lang="certificatesTitle">Sertifikat & Keterlibatan</h2>
-                    <p class="text-slate-500 mt-2" data-lang="certificatesSubtitle">Pengalaman Organisasi dan Kepanitiaan</p>
+                <div class="text-center mb-16">
+                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-800" data-lang="certificatesTitle">Sertifikat & Keterlibatan</h2>
+                    <div class="w-12 h-1 bg-peach-500 mx-auto mt-3 rounded-full"></div>
+                    <p class="text-slate-500 mt-2 text-sm sm:text-base" data-lang="certificatesSubtitle">Pengalaman Organisasi dan Kepanitiaan</p>
                 </div>
-                <div id="certificates-container" class="max-w-5xl mx-auto grid md:grid-cols-3 gap-8">
+                <div id="certificates-container" class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
                     <!-- Certificates Items will be populated by JS -->
                 </div>
             </div>
         </section>
 
         <!-- Skills Section -->
-        <section id="skills" class="bg-white py-20 overflow-hidden">
+        <section id="skills" class="bg-white py-20">
             <div class="container mx-auto px-6 reveal">
-                <div class="text-center mb-12">
-                    <h2 class="font-display text-4xl font-bold" data-lang="skillsTitle">Keahlian & Kompetensi</h2>
-                    <p class="text-slate-500 mt-2" data-lang="skillsSubtitle">Kemampuan Teknis dan Soft Skills</p>
+                <div class="text-center mb-16">
+                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-800" data-lang="skillsTitle">Keahlian & Kompetensi</h2>
+                    <div class="w-12 h-1 bg-peach-500 mx-auto mt-3 rounded-full"></div>
+                    <p class="text-slate-500 mt-2 text-sm sm:text-base" data-lang="skillsSubtitle">Kemampuan Teknis dan Soft Skills</p>
                 </div>
                 <div id="skills-container" class="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 text-center">
                     <!-- Skills will be populated by JS -->
@@ -194,37 +272,52 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-20 overflow-hidden">
+        <section id="contact" class="py-20">
             <div class="container mx-auto px-6 reveal">
                 <div class="text-center mb-12">
-                    <h2 class="font-display text-4xl font-bold" data-lang="contactTitle">Hubungi Saya</h2>
-                    <p class="text-slate-500 mt-2" data-lang="contactSubtitle">Mari terhubung dan berdiskusi lebih lanjut.</p>
+                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-800" data-lang="contactTitle">Hubungi Saya</h2>
+                    <div class="w-12 h-1 bg-peach-500 mx-auto mt-3 rounded-full"></div>
+                    <p class="text-slate-500 mt-2 text-sm sm:text-base" data-lang="contactSubtitle">Mari terhubung dan berdiskusi lebih lanjut.</p>
                 </div>
-                <div class="max-w-lg mx-auto bg-white p-8 rounded-xl shadow-lg">
-                    <div class="space-y-6">
-                        <div class="flex items-center">
-                            <div class="bg-peach-100 p-3 rounded-full flex-shrink-0">
-                                <i data-lucide="mail" class="w-6 h-6 text-peach-500"></i>
+                <div class="max-w-xl mx-auto bg-white p-6 sm:p-8 rounded-2xl border border-slate-100 shadow-md hover:shadow-lg transition-all duration-300">
+                    <div class="grid grid-cols-1 gap-4 sm:gap-6">
+                        <a href="mailto:ajengdwitaadhyani15@gmail.com" class="flex items-center p-4 rounded-xl bg-slate-50 hover:bg-peach-50 border border-slate-100 hover:border-peach-100 transition-all duration-300 group">
+                            <div class="bg-peach-100 text-peach-500 p-3 rounded-xl flex-shrink-0 group-hover:bg-peach-500 group-hover:text-white transition-colors duration-300">
+                                <i data-lucide="mail" class="w-5 h-5 flex-shrink-0"></i>
                             </div>
-                            <a href="mailto:ajengdwitaadhyani15@gmail.com" class="ml-4 text-slate-600 hover:text-peach-500 break-words">ajengdwitaadhyani15@gmail.com</a>
-                        </div>
-                         <div class="flex items-center">
-                            <div class="bg-peach-100 p-3 rounded-full flex-shrink-0">
-                                <i data-lucide="phone" class="w-6 h-6 text-peach-500"></i>
+                            <div class="ml-4 overflow-hidden">
+                                <p class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Email</p>
+                                <p class="text-sm sm:text-base text-slate-600 group-hover:text-peach-600 transition-colors truncate break-all">ajengdwitaadhyani15@gmail.com</p>
                             </div>
-                            <a href="http://wa.me/+6285893999739" target="_blank" class="ml-4 text-slate-600 hover:text-peach-500">+62 858-9399-9739</a>
-                        </div>
-                         <div class="flex items-center">
-                            <div class="bg-peach-100 p-3 rounded-full flex-shrink-0">
-                                <i data-lucide="linkedin" class="w-6 h-6 text-peach-500"></i>
+                        </a>
+                        <a href="http://wa.me/+6285893999739" target="_blank" class="flex items-center p-4 rounded-xl bg-slate-50 hover:bg-peach-50 border border-slate-100 hover:border-peach-100 transition-all duration-300 group">
+                            <div class="bg-peach-100 text-peach-500 p-3 rounded-xl flex-shrink-0 group-hover:bg-peach-500 group-hover:text-white transition-colors duration-300">
+                                <i data-lucide="phone" class="w-5 h-5 flex-shrink-0"></i>
                             </div>
-                            <a href="https://www.linkedin.com/in/ajeng-dwita-adhyani-581730253/" target="_blank" class="ml-4 text-slate-600 hover:text-peach-500 break-words">linkedin.com/in/ajeng-dwita-adhyani</a>
-                        </div>
-                         <div class="flex items-center">
-                            <div class="bg-peach-100 p-3 rounded-full flex-shrink-0">
-                                <i data-lucide="map-pin" class="w-6 h-6 text-peach-500"></i>
+                            <div class="ml-4 overflow-hidden">
+                                <p class="text-xs text-slate-400 font-semibold uppercase tracking-wider">WhatsApp</p>
+                                <p class="text-sm sm:text-base text-slate-600 group-hover:text-peach-600 transition-colors truncate break-all">+62 858-9399-9739</p>
                             </div>
-                            <p class="ml-4 text-slate-600">Jakarta Selatan, Indonesia</p>
+                        </a>
+                        <a href="https://www.linkedin.com/in/ajeng-dwita-adhyani-581730253/" target="_blank" class="flex items-center p-4 rounded-xl bg-slate-50 hover:bg-peach-50 border border-slate-100 hover:border-peach-100 transition-all duration-300 group">
+                            <div class="bg-peach-100 text-[#0a66c2] p-3 rounded-xl flex-shrink-0 group-hover:bg-[#0a66c2] group-hover:text-white transition-colors duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 flex-shrink-0">
+                                    <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.15V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.5c1.8 0 3.4 1.14 3.4 4.08z"/>
+                                </svg>
+                            </div>
+                            <div class="ml-4 overflow-hidden">
+                                <p class="text-xs text-slate-400 font-semibold uppercase tracking-wider">LinkedIn</p>
+                                <p class="text-sm sm:text-base text-slate-600 group-hover:text-peach-600 transition-colors truncate break-all">linkedin.com/in/ajeng-dwita-adhyani</p>
+                            </div>
+                        </a>
+                        <div class="flex items-center p-4 rounded-xl bg-slate-50 border border-slate-100">
+                            <div class="bg-peach-100 text-peach-500 p-3 rounded-xl flex-shrink-0">
+                                <i data-lucide="map-pin" class="w-5 h-5 flex-shrink-0"></i>
+                            </div>
+                            <div class="ml-4 overflow-hidden">
+                                <p class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Location</p>
+                                <p class="text-sm sm:text-base text-slate-600 truncate">Jakarta Selatan, Indonesia</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -235,7 +328,7 @@
 
     <!-- Footer -->
     <footer class="bg-white mt-20 py-8 border-t border-peach-100">
-        <div class="container mx-auto px-6 text-center text-slate-500">
+        <div class="container mx-auto px-6 text-center text-slate-500 text-sm">
             <p data-lang="footerText">&copy; 2025 Ajeng Dwita Adhyani. Dibuat dengan penuh semangat.</p>
         </div>
     </footer>
@@ -261,10 +354,16 @@
                 heroSubtitle: "Akuntan | Analis Keuangan | Membantu Bisnis Membuat Keputusan Berbasis Data",
                 heroDescription: "Profesional keuangan dan akuntansi berpengalaman dengan rekam jejak yang kuat di berbagai industri. Berkomitmen untuk mendorong efisiensi keuangan dan pertumbuhan bisnis.",
                 heroContactBtn: "Hubungi Saya",
-                heroDownloadCVBtn: '<i data-lucide="download" class="w-5 h-5 mr-2"></i> Unduh CV',
+                heroDownloadCVBtn: "Unduh CV",
                 aboutTitle: "Tentang Saya",
                 aboutSubtitle: "Ringkasan Profesional",
                 aboutDescription: "Seorang profesional keuangan dan akuntansi yang berpengalaman dengan latar belakang yang kuat dalam industri makanan, layanan kesehatan, dan serat optik. Memiliki keahlian dalam pelaporan keuangan, penganggaran, manajemen treasury, dan pengambilan keputusan berbasis data. Terampil dalam sistem akuntansi, optimalisasi proses, dan peramalan keuangan untuk meningkatkan kinerja bisnis. Mahir dalam Microsoft Excel, manajemen basis data, dan pemecahan masalah analitis. Seorang profesional yang berorientasi pada hasil dengan pola pikir strategis, berkomitmen untuk mendorong efisiensi keuangan dan pertumbuhan bisnis.",
+                statExpVal: "5+ Tahun",
+                statExpLabel: "Pengalaman Kerja",
+                statIndVal: "3 Industri",
+                statIndLabel: "Sektor Berbeda",
+                statEduVal: "IPK 3.48",
+                statEduLabel: "Sarjana Akuntansi",
                 experienceTitle: "Pengalaman Kerja",
                 experienceSubtitle: "Perjalanan Karir Profesional Saya",
                 experienceItems: [
@@ -310,10 +409,16 @@
                 heroSubtitle: "Accountant | Financial Analyst | Helping Businesses Make Data-Driven Decisions",
                 heroDescription: "Experienced finance and accounting professional with a strong track record across various industries. Committed to driving financial efficiency and business growth.",
                 heroContactBtn: "Contact Me",
-                heroDownloadCVBtn: '<i data-lucide="download" class="w-5 h-5 mr-2"></i> Download CV',
+                heroDownloadCVBtn: "Download CV",
                 aboutTitle: "About Me",
                 aboutSubtitle: "Professional Summary",
                 aboutDescription: "An experienced finance and accounting professional with a strong background in the food, health services, and fiber optics industries. Expertise in financial reporting, budgeting, treasury management, and data-driven decision-making. Skilled in accounting systems, process optimization, and financial forecasting to enhance business performance. Proficient in Microsoft Excel, database management, and analytical problem-solving. A results-driven professional with a strategic mindset, committed to driving financial efficiency and business growth.",
+                statExpVal: "5+ Years",
+                statExpLabel: "Work Experience",
+                statIndVal: "3 Industries",
+                statIndLabel: "Different Sectors",
+                statEduVal: "GPA 3.48",
+                statEduLabel: "Bachelor of Accounting",
                 experienceTitle: "Work Experience",
                 experienceSubtitle: "My Professional Career Journey",
                 experienceItems: [
@@ -380,9 +485,14 @@
             renderCertificates(lang);
             renderSkills(lang);
 
+            // Style Active language toggle pill
             document.querySelectorAll('.lang-switch-btn').forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.id.includes(lang)) btn.classList.add('active');
+                btn.classList.remove('bg-peach-500', 'text-white', 'shadow-sm');
+                btn.classList.add('text-slate-600', 'hover:text-peach-500');
+                if (btn.id.includes(lang)) {
+                    btn.classList.add('bg-peach-500', 'text-white', 'shadow-sm');
+                    btn.classList.remove('text-slate-600', 'hover:text-peach-500');
+                }
             });
             
             lucide.createIcons();
@@ -391,24 +501,31 @@
         
         const renderExperience = (lang) => {
             const container = document.getElementById('experience-container');
-            container.innerHTML = '';
+            // Clean container and insert vertical timeline line
+            container.innerHTML = `
+                <!-- Timeline vertical line -->
+                <div class="absolute left-4 sm:left-6 top-2 bottom-2 w-0.5 bg-peach-100"></div>
+            `;
             translations[lang].experienceItems.forEach(item => {
                 const pointsHTML = item.points.map(point => `<li>${point}</li>`).join('');
                 const certificateLink = item.certificateUrl !== '#' ? `
-                    <a href="${item.certificateUrl}" target="_blank" class="inline-block ml-2 text-peach-500 hover:text-peach-600" title="${translations[lang].certificateTooltip}">
+                    <a href="${item.certificateUrl}" target="_blank" class="inline-flex items-center ml-2 text-peach-500 hover:text-peach-600 transition-colors" title="${translations[lang].certificateTooltip}">
                         <i data-lucide="external-link" class="w-4 h-4"></i>
                     </a>` : '';
                 container.innerHTML += `
-                <div class="relative reveal">
-                    <div class="absolute -left-10 mt-1.5 w-4 h-4 bg-peach-500 rounded-full border-4 border-peach-50 box-content"></div>
-                    <div class="bg-white p-6 rounded-lg shadow-lg border-l-4 border-peach-500 ml-4">
-                        <p class="text-sm text-slate-500">${item.date}</p>
-                        <h3 class="text-xl font-bold mt-1">${item.title}</h3>
-                        <p class="text-slate-600 font-medium">
-                            <a href="${item.url}" target="_blank" class="hover:underline">${item.company}</a>
+                <div class="relative pl-10 sm:pl-14 reveal">
+                    <!-- Timeline badge icon container -->
+                    <div class="absolute left-0 sm:left-2 top-1 w-8 h-8 bg-peach-100 text-peach-500 rounded-full flex items-center justify-center border-2 border-white shadow-sm transition duration-300 hover:bg-peach-500 hover:text-white">
+                        <i data-lucide="briefcase" class="w-4 h-4"></i>
+                    </div>
+                    <div class="bg-white p-5 sm:p-6 rounded-2xl shadow-sm border border-slate-100 hover:border-peach-200 transition-all duration-300 hover:shadow-md">
+                        <span class="inline-block text-xs font-semibold px-2.5 py-1 bg-peach-50 text-peach-500 rounded-full mb-3">${item.date}</span>
+                        <h3 class="text-lg sm:text-xl font-bold text-slate-800">${item.title}</h3>
+                        <p class="text-slate-600 font-medium text-sm sm:text-base mt-1.5 flex items-center flex-wrap">
+                            <a href="${item.url}" target="_blank" class="hover:text-peach-500 transition-colors duration-300 underline decoration-peach-100 underline-offset-4">${item.company}</a>
                             ${certificateLink}
                         </p>
-                        <ul class="mt-4 text-sm text-slate-500 list-disc list-outside space-y-1.5 pl-5">${pointsHTML}</ul>
+                        <ul class="mt-4 text-xs sm:text-sm text-slate-500 list-disc list-outside space-y-2.5 pl-4 leading-relaxed">${pointsHTML}</ul>
                     </div>
                 </div>`;
             });
@@ -418,22 +535,29 @@
             const container = document.getElementById('education-container');
             container.innerHTML = '';
             translations[lang].educationItems.forEach(item => {
-                const activitiesHTML = item.activities ? `<p class="text-sm text-slate-500 mt-2 italic">${item.activities}</p>` : '';
+                const activitiesHTML = item.activities ? `<p class="text-xs sm:text-sm text-slate-500 mt-3 italic leading-relaxed">${item.activities}</p>` : '';
                 const linksHTML = item.links.map(link => `
-                    <a href="${link.url}" target="_blank" class="link-chip" title="${link.name}">
-                        <i data-lucide="${link.icon}" class="w-3 h-3"></i>
+                    <a href="${link.url}" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-peach-50 hover:bg-peach-100 text-peach-600 text-xs font-semibold rounded-full border border-peach-100/50 transition-colors duration-300" title="${link.name}">
+                        <i data-lucide="${link.icon}" class="w-3.5 h-3.5 flex-shrink-0"></i>
                         <span>${link.name}</span>
                     </a>
                 `).join('');
                 
                 container.innerHTML += `
-                <div class="bg-peach-50 p-6 rounded-lg transition hover:shadow-lg hover:-translate-y-1 reveal">
-                    <p class="text-sm text-peach-500 font-semibold">${item.period}</p>
-                    <h3 class="text-xl font-bold mt-1 text-slate-800">${item.degree}</h3>
-                    <a href="${item.url}" target="_blank" class="text-slate-600 hover:underline">${item.school}</a>
-                    ${item.detail ? `<p class="text-sm text-slate-500 mt-2">${item.detail}</p>` : ''}
-                    ${activitiesHTML}
-                    <div class="mt-4 flex flex-wrap gap-2">${linksHTML}</div>
+                <div class="bg-peach-50/50 p-6 sm:p-8 rounded-2xl border border-peach-100/40 transition-all duration-300 hover:shadow-md hover:-translate-y-1 reveal flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between gap-4 mb-4">
+                            <span class="inline-block text-xs font-semibold px-2.5 py-1 bg-peach-100 text-peach-600 rounded-full">${item.period}</span>
+                            <div class="text-peach-500 p-2 bg-white rounded-xl shadow-sm border border-slate-100">
+                                <i data-lucide="graduation-cap" class="w-5 h-5 flex-shrink-0"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-bold text-slate-800 leading-snug">${item.degree}</h3>
+                        <a href="${item.url}" target="_blank" class="inline-block text-sm text-slate-600 hover:text-peach-500 transition-colors mt-2 font-medium underline decoration-slate-200 underline-offset-4">${item.school}</a>
+                        ${item.detail ? `<p class="text-sm font-semibold text-peach-600 mt-3">${item.detail}</p>` : ''}
+                        ${activitiesHTML}
+                    </div>
+                    <div class="mt-6 pt-6 border-t border-peach-100/50 flex flex-wrap gap-2">${linksHTML}</div>
                 </div>`;
             });
         };
@@ -443,14 +567,17 @@
             container.innerHTML = '';
             translations[lang].certificatesItems.forEach(item => {
                 container.innerHTML += `
-                <a href="${item.url}" target="_blank" class="bg-white p-6 rounded-lg shadow-md transition hover:shadow-xl hover:-translate-y-1 reveal flex flex-col group">
-                     <div class="flex items-center text-peach-500 mb-3">
-                        <i data-lucide="award" class="w-5 h-5 mr-2 flex-shrink-0"></i>
-                        <p class="text-sm font-semibold">${item.date}</p>
+                <a href="${item.url}" target="_blank" class="bg-white p-6 rounded-2xl border border-slate-100 hover:border-peach-200 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 reveal flex flex-col group relative">
+                    <div class="flex items-center justify-between text-peach-500 mb-4">
+                        <div class="flex items-center">
+                            <i data-lucide="award" class="w-5 h-5 mr-2 flex-shrink-0"></i>
+                            <span class="text-xs font-semibold px-2.5 py-0.5 bg-peach-50 text-peach-500 rounded-full">${item.date}</span>
+                        </div>
+                        <i data-lucide="arrow-up-right" class="w-4.5 h-4.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-slate-400 group-hover:text-peach-500"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-slate-800 group-hover:text-peach-500 transition-colors">${item.title}</h3>
-                    <p class="text-sm text-slate-600 font-medium mb-2">${item.issuer}</p>
-                    <p class="text-sm text-slate-500 flex-grow">${item.description}</p>
+                    <h3 class="text-base sm:text-lg font-bold text-slate-800 group-hover:text-peach-500 transition-colors duration-300 leading-snug">${item.title}</h3>
+                    <p class="text-xs text-slate-400 font-semibold mt-1.5 mb-3">${item.issuer}</p>
+                    <p class="text-xs sm:text-sm text-slate-500 leading-relaxed flex-grow">${item.description}</p>
                 </a>`;
             });
         };
@@ -460,9 +587,11 @@
             container.innerHTML = '';
             translations[lang].skillsItems.forEach(item => {
                 container.innerHTML += `
-                <div class="bg-peach-50 p-4 rounded-lg flex flex-col items-center justify-center h-32 transition hover:shadow-lg hover:-translate-y-1 reveal">
-                    <i data-lucide="${item.icon}" class="text-peach-500 w-8 h-8 mb-2"></i>
-                    <p class="font-semibold text-center text-sm">${item.name}</p>
+                <div class="bg-white border border-slate-100 hover:border-peach-200 p-5 rounded-2xl flex flex-col items-center justify-center h-28 sm:h-32 transition-all duration-300 hover:shadow-md hover:-translate-y-1 reveal group">
+                    <div class="bg-peach-50 p-2.5 rounded-xl text-peach-500 mb-3 group-hover:bg-peach-500 group-hover:text-white transition-all duration-300">
+                        <i data-lucide="${item.icon}" class="w-6 h-6 flex-shrink-0"></i>
+                    </div>
+                    <p class="font-bold text-slate-700 text-center text-xs sm:text-sm leading-snug group-hover:text-slate-800 transition-colors">${item.name}</p>
                 </div>`;
             });
         };
@@ -478,16 +607,39 @@
         // Mobile Menu Toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
+        
         mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+            const isHidden = mobileMenu.classList.toggle('hidden');
+            mobileMenuButton.innerHTML = isHidden 
+                ? '<i data-lucide="menu" class="w-6 h-6"></i>' 
+                : '<i data-lucide="x" class="w-6 h-6"></i>';
+            lucide.createIcons();
         });
 
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-                if (!mobileMenu.classList.contains('hidden')) mobileMenu.classList.add('hidden');
+                const targetEl = document.querySelector(this.getAttribute('href'));
+                if (targetEl) {
+                    targetEl.scrollIntoView({ behavior: 'smooth' });
+                }
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuButton.innerHTML = '<i data-lucide="menu" class="w-6 h-6"></i>';
+                    lucide.createIcons();
+                }
             });
+        });
+
+        // Close mobile menu if clicked outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuButton.innerHTML = '<i data-lucide="menu" class="w-6 h-6"></i>';
+                    lucide.createIcons();
+                }
+            }
         });
 
         // Initial Render
@@ -498,4 +650,5 @@
 
 </body>
 </html>
+
 
