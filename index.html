@@ -57,6 +57,7 @@
             transform: translateY(0);
         }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 
 <body class="bg-peach-50 text-slate-800 antialiased">
@@ -204,11 +205,11 @@
                         </svg>
                         LinkedIn
                     </a>
-                    <a href="./Ajeng_Dwita_Adhyani-Admin_Finance-CV.pdf" download="Ajeng Dwita Adhyani - CV.pdf"
-                        class="bg-white text-slate-800 font-bold py-3 px-6 rounded-xl hover:bg-slate-50 border border-slate-200 transition-all duration-300 shadow-sm hover:shadow-md flex items-center justify-center gap-2 w-full sm:w-auto">
+                    <button id="download-cv-btn"
+                        class="bg-white text-slate-800 font-bold py-3 px-6 rounded-xl hover:bg-slate-50 border border-slate-200 transition-all duration-300 shadow-sm hover:shadow-md flex items-center justify-center gap-2 w-full sm:w-auto cursor-pointer">
                         <i data-lucide="download" class="w-5 h-5 flex-shrink-0"></i>
                         <span data-lang="heroDownloadCVBtn">Unduh CV</span>
-                    </a>
+                    </button>
                 </div>
             </div>
             <div class="md:w-1/2 flex justify-center reveal" style="transition-delay: 200ms;">
@@ -429,6 +430,48 @@
         </div>
     </footer>
 
+    <!-- CV Download Modal -->
+    <div id="cv-modal" class="fixed inset-0 z-[60] hidden">
+        <div class="absolute inset-0 bg-slate-900/50 backdrop-blur-sm" id="cv-modal-overlay"></div>
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="relative bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 sm:p-8 border border-slate-100">
+                <button id="cv-modal-close" class="absolute top-4 right-4 p-2 rounded-lg hover:bg-slate-100 text-slate-400 hover:text-slate-600 transition-colors">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+                <h3 class="font-display text-xl sm:text-2xl font-bold text-slate-800 mb-2" data-lang="modalTitle">Unduh CV</h3>
+                <p class="text-slate-500 text-sm mb-6" data-lang="modalSubtitle">Silakan isi informasi berikut untuk menyesuaikan CV Anda.</p>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1.5" data-lang="modalPositionLabel">Posisi yang Dilamar</label>
+                        <input type="text" id="cv-position-input"
+                            class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-peach-500 focus:ring-2 focus:ring-peach-500/20 outline-none transition-all text-slate-800"
+                            data-lang-placeholder="modalPositionPlaceholder">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1.5" data-lang="modalLanguageLabel">Bahasa CV</label>
+                        <div class="flex gap-3">
+                            <button id="cv-lang-id" class="cv-lang-btn flex-1 py-3 px-4 rounded-xl border-2 border-peach-500 bg-peach-50 text-peach-600 font-semibold transition-all">
+                                Indonesia
+                            </button>
+                            <button id="cv-lang-en" class="cv-lang-btn flex-1 py-3 px-4 rounded-xl border-2 border-slate-200 bg-white text-slate-600 font-semibold transition-all hover:border-peach-300">
+                                English
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <button id="cv-download-btn" class="w-full mt-6 bg-peach-500 text-white font-bold py-3.5 px-6 rounded-xl hover:bg-peach-600 transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2">
+                    <i data-lucide="download" class="w-5 h-5"></i>
+                    <span data-lang="modalDownloadBtn">Unduh CV</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hidden CV Template for PDF Generation -->
+    <div id="cv-template" class="hidden">
+        <!-- CV will be rendered here by JS before PDF generation -->
+    </div>
+
     <script>
         // Initialize Lucide Icons
         lucide.createIcons();
@@ -488,7 +531,14 @@
                 contactTitle: "Hubungi Saya",
                 contactSubtitle: "Mari terhubung dan berdiskusi lebih lanjut.",
                 footerText: "&copy; 2025 Ajeng Dwita Adhyani. Dibuat dengan penuh semangat.",
-                certificateTooltip: "Lihat Surat Keterangan"
+                certificateTooltip: "Lihat Surat Keterangan",
+                // Modal translations
+                modalTitle: "Unduh CV",
+                modalSubtitle: "Silakan isi informasi berikut untuk menyesuaikan CV Anda.",
+                modalPositionLabel: "Posisi yang Dilamar",
+                modalPositionPlaceholder: "Contoh: Finance Account Payable",
+                modalLanguageLabel: "Bahasa CV",
+                modalDownloadBtn: "Unduh CV"
             },
             en: {
                 navAbout: "About",
@@ -543,7 +593,14 @@
                 contactTitle: "Contact Me",
                 contactSubtitle: "Let's connect and discuss further.",
                 footerText: "&copy; 2025 Ajeng Dwita Adhyani. Created with passion.",
-                certificateTooltip: "View Certificate of Employment"
+                certificateTooltip: "View Certificate of Employment",
+                // Modal translations
+                modalTitle: "Download CV",
+                modalSubtitle: "Please fill in the following information to customize your CV.",
+                modalPositionLabel: "Position Applied For",
+                modalPositionPlaceholder: "e.g. Finance Account Payable",
+                modalLanguageLabel: "CV Language",
+                modalDownloadBtn: "Download CV"
             }
         };
 
@@ -780,6 +837,318 @@
             switchLanguage('id');
             scrollspy();
         });
+
+        // ========== CV Download Modal & PDF Generation ==========
+        let cvSelectedLang = 'id';
+
+        // Modal Elements
+        const cvModal = document.getElementById('cv-modal');
+        const cvModalOverlay = document.getElementById('cv-modal-overlay');
+        const cvModalClose = document.getElementById('cv-modal-close');
+        const downloadCvBtn = document.getElementById('download-cv-btn');
+        const cvPositionInput = document.getElementById('cv-position-input');
+        const cvLangIdBtn = document.getElementById('cv-lang-id');
+        const cvLangEnBtn = document.getElementById('cv-lang-en');
+        const cvDownloadBtn = document.getElementById('cv-download-btn');
+
+        // Open modal
+        downloadCvBtn.addEventListener('click', () => {
+            cvModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            cvPositionInput.focus();
+        });
+
+        // Close modal
+        const closeCvModal = () => {
+            cvModal.classList.add('hidden');
+            document.body.style.overflow = '';
+        };
+
+        cvModalClose.addEventListener('click', closeCvModal);
+        cvModalOverlay.addEventListener('click', closeCvModal);
+
+        // Language selection in modal
+        const updateCvLangButtons = () => {
+            if (cvSelectedLang === 'id') {
+                cvLangIdBtn.classList.add('border-peach-500', 'bg-peach-50', 'text-peach-600');
+                cvLangIdBtn.classList.remove('border-slate-200', 'bg-white', 'text-slate-600');
+                cvLangEnBtn.classList.remove('border-peach-500', 'bg-peach-50', 'text-peach-600');
+                cvLangEnBtn.classList.add('border-slate-200', 'bg-white', 'text-slate-600');
+            } else {
+                cvLangEnBtn.classList.add('border-peach-500', 'bg-peach-50', 'text-peach-600');
+                cvLangEnBtn.classList.remove('border-slate-200', 'bg-white', 'text-slate-600');
+                cvLangIdBtn.classList.remove('border-peach-500', 'bg-peach-50', 'text-peach-600');
+                cvLangIdBtn.classList.add('border-slate-200', 'bg-white', 'text-slate-600');
+            }
+        };
+
+        cvLangIdBtn.addEventListener('click', () => {
+            cvSelectedLang = 'id';
+            updateCvLangButtons();
+        });
+
+        cvLangEnBtn.addEventListener('click', () => {
+            cvSelectedLang = 'en';
+            updateCvLangButtons();
+        });
+
+        // Generate CV PDF
+        const generateCvPdf = () => {
+            const position = cvPositionInput.value.trim() || (cvSelectedLang === 'id' ? 'Posisi Keuangan' : 'Finance Position');
+            const lang = cvSelectedLang;
+            const t = translations[lang];
+
+            // Build experience HTML
+            let experienceHtml = '';
+            t.experienceItems.forEach(item => {
+                let pointsHtml = '';
+                item.points.forEach(point => {
+                    pointsHtml += `<li style="margin-bottom: 3px;">${point}</li>`;
+                });
+                experienceHtml += `
+                    <div class="experience-item">
+                        <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                            <h3 style="font-size: 11pt; font-weight: 600; color: #1a1a1a; margin: 0;">${item.title}</h3>
+                            <span style="font-size: 9pt; color: #666;">${item.date}</span>
+                        </div>
+                        <p style="font-size: 10pt; color: #E65100; margin: 2px 0 6px 0;">
+                            <a href="${item.url}" style="color: #E65100; text-decoration: underline;">${item.company}</a>
+                            ${item.certificateUrl ? `<a href="${item.certificateUrl}" style="color: #888; text-decoration: underline; margin-left: 8px; font-size: 8pt;">[${lang === 'id' ? 'Sertifikat' : 'Certificate'}]</a>` : ''}
+                        </p>
+                        <ul style="margin: 0; padding-left: 14px; font-size: 9pt; color: #444; line-height: 1.4;">
+                            ${pointsHtml}
+                        </ul>
+                    </div>
+                `;
+            });
+
+            // Build education HTML
+            let educationHtml = '';
+            t.educationItems.forEach(item => {
+                let linksHtml = '';
+                if (item.links && item.links.length > 0) {
+                    item.links.forEach(link => {
+                        linksHtml += `<a href="${link.url}" style="font-size: 8pt; color: #E65100; text-decoration: underline; margin-right: 10px;">${link.name}</a>`;
+                    });
+                }
+                educationHtml += `
+                    <div class="education-item">
+                        <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                            <h3 style="font-size: 11pt; font-weight: 600; color: #1a1a1a; margin: 0;">${item.degree}</h3>
+                            <span style="font-size: 9pt; color: #666;">${item.period}</span>
+                        </div>
+                        <p style="font-size: 10pt; color: #666; margin: 2px 0;">
+                            <a href="${item.url}" style="color: #E65100; text-decoration: underline;">${item.school}</a>
+                            ${item.detail ? `<span style="color: #444;"> | ${item.detail}</span>` : ''}
+                        </p>
+                        ${item.activities ? `<p style="font-size: 9pt; color: #666; font-style: italic; margin: 3px 0 0 0;">${item.activities}</p>` : ''}
+                        ${linksHtml ? `<div style="margin-top: 4px;">${linksHtml}</div>` : ''}
+                    </div>
+                `;
+            });
+
+            // Build certificates HTML
+            let certificatesHtml = '';
+            t.certificatesItems.forEach(item => {
+                certificatesHtml += `
+                    <div class="certificate-item">
+                        <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                            <h3 style="font-size: 10pt; font-weight: 600; color: #1a1a1a; margin: 0;">
+                                ${item.title}
+                                <a href="${item.url}" style="color: #888; text-decoration: underline; margin-left: 4px; font-size: 8pt;">[Link]</a>
+                            </h3>
+                            <span style="font-size: 8pt; color: #666;">${item.date}</span>
+                        </div>
+                        <p style="font-size: 9pt; color: #E65100; margin: 2px 0 3px 0;">${item.issuer}</p>
+                        <p style="font-size: 9pt; color: #555; margin: 0; line-height: 1.3;">${item.description}</p>
+                    </div>
+                `;
+            });
+
+            // Build skills HTML - Grouping them nicely or simple list for ATS friendliness
+            let skillsHtml = '';
+            t.skillsItems.forEach((item, index) => {
+                skillsHtml += item.name + (index < t.skillsItems.length - 1 ? ' • ' : '');
+            });
+
+            const cvContent = `
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <meta charset="utf-8">
+                    <style>
+                        @page {
+                            size: A4;
+                            margin: 15mm 15mm 15mm 15mm;
+                        }
+                        body {
+                            font-family: Arial, Helvetica, sans-serif;
+                            font-size: 10pt;
+                            line-height: 1.4;
+                            color: #333;
+                            margin: 0;
+                            padding: 0;
+                        }
+                        h1 {
+                            font-size: 18pt;
+                            font-weight: 700;
+                            color: #1a1a1a;
+                            margin: 0 0 4px 0;
+                        }
+                        h2 {
+                            font-size: 11pt;
+                            font-weight: 700;
+                            color: #1a1a1a;
+                            text-transform: uppercase;
+                            letter-spacing: 0.5px;
+                            border-bottom: 1px solid #E65100;
+                            padding-bottom: 5px;
+                            margin: 0 0 10px 0;
+                        }
+                        h3 {
+                            font-size: 11pt;
+                            font-weight: 600;
+                            color: #1a1a1a;
+                            margin: 0;
+                        }
+                        p {
+                            margin: 0 0 8px 0;
+                        }
+                        a {
+                            color: #E65100;
+                            text-decoration: underline;
+                        }
+                        ul {
+                            margin: 0;
+                            padding-left: 14px;
+                        }
+                        li {
+                            margin-bottom: 3px;
+                        }
+                        .section {
+                            margin-bottom: 12px;
+                            page-break-inside: avoid;
+                        }
+                        .section > h2 {
+                            page-break-after: avoid;
+                        }
+                        .experience-item {
+                            page-break-inside: avoid;
+                            margin-bottom: 14px;
+                        }
+                        .education-item {
+                            page-break-inside: avoid;
+                            margin-bottom: 10px;
+                        }
+                        .certificate-item {
+                            page-break-inside: avoid;
+                            margin-bottom: 8px;
+                        }
+                        .page-break {
+                            page-break-before: always;
+                        }
+                        .position {
+                            font-size: 11pt;
+                            color: #E65100;
+                            font-weight: 600;
+                            margin: 0 0 8px 0;
+                        }
+                        .contact-info {
+                            font-size: 9pt;
+                            color: #666;
+                            line-height: 1.5;
+                        }
+                        .header-section {
+                            border-bottom: 2px solid #E65100;
+                            padding-bottom: 12px;
+                            margin-bottom: 12px;
+                        }
+                        .skills-container {
+                            font-size: 9.5pt;
+                            color: #444;
+                            line-height: 1.6;
+                            text-align: justify;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <!-- Header -->
+                    <div class="header-section">
+                        <h1>Ajeng Dwita Adhyani</h1>
+                        <p class="position">${position}</p>
+                        <div class="contact-info">
+                            <p style="margin: 0;">ajengdwitaadhyani15@gmail.com | +62 858-9399-9739 | Jakarta Selatan, Indonesia</p>
+                            <p style="margin: 0;"><a href="https://www.linkedin.com/in/ajeng-dwita-adhyani-581730253/">linkedin.com/in/ajeng-dwita-adhyani</a></p>
+                        </div>
+                    </div>
+
+                    <!-- Professional Summary -->
+                    <div class="section">
+                        <h2>${lang === 'id' ? 'Ringkasan Profesional' : 'Professional Summary'}</h2>
+                        <p style="font-size: 9pt; line-height: 1.4; color: #444; text-align: justify; margin: 0;">
+                            ${t.aboutDescription}
+                        </p>
+                    </div>
+
+                    <!-- Work Experience -->
+                    <div class="section">
+                        <h2>${lang === 'id' ? 'Pengalaman Kerja' : 'Work Experience'}</h2>
+                        ${experienceHtml}
+                    </div>
+
+                    <!-- Education -->
+                    <div class="section page-break">
+                        <h2>${lang === 'id' ? 'Pendidikan' : 'Education'}</h2>
+                        ${educationHtml}
+                    </div>
+
+                    <!-- Certificates -->
+                    <div class="section">
+                        <h2>${lang === 'id' ? 'Sertifikat & Keterlibatan' : 'Certificates & Involvements'}</h2>
+                        ${certificatesHtml}
+                    </div>
+
+                    <!-- Skills -->
+                    <div class="section">
+                        <h2>${lang === 'id' ? 'Keahlian' : 'Skills'}</h2>
+                        <div class="skills-container">
+                            ${skillsHtml}
+                        </div>
+                    </div>
+                </body>
+                </html>
+            `;
+
+            const opt = {
+                margin: [15, 15, 15, 15],
+                filename: `CV_Ajeng_Dwita_Adhyani_${position.replace(/\s+/g, '_')}.pdf`,
+                html2canvas: {
+                    scale: 2,
+                    useCORS: true,
+                    logging: false
+                },
+                jsPDF: {
+                    unit: 'mm',
+                    format: 'a4',
+                    orientation: 'portrait',
+                    hotfixes: ['px_scaling']
+                },
+                pagebreak: {
+                    mode: ['css', 'legacy'],
+                    before: '.page-break',
+                    avoid: ['.experience-item', '.education-item', '.certificate-item', 'h2', 'h3']
+                }
+            };
+
+            html2pdf().set(opt).from(cvContent).save().then(() => {
+                closeCvModal();
+            }).catch(err => {
+                console.error('PDF generation error:', err);
+                alert('Gagal membuat PDF. Silakan coba lagi.');
+            });
+        };
+
+        cvDownloadBtn.addEventListener('click', generateCvPdf);
     </script>
 
 </body>
